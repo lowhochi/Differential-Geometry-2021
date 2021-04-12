@@ -1,0 +1,351 @@
+\documentclass{article}[12pt,a4paper]
+\include{pageStyle2020}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{document}
+\include{codefile2020}
+\pagestyle{empty}
+\begin{center} Laplacian Operator (I) \end{center}
+
+\begin{center} {\sc 1. Laplacian of function}\end{center}
+Let $(M, g)$ be an $n$-dimensional Riemannian manifold. 
+Let $\nabla$ be the Riemannian connection of $g$. 
+Suppose $\{e_1, e_2, \cdots, e_n\} $ is an orthonormal frame on $M$, 
+and $\{\omega_1, \omega_2, \cdots, \omega_n\} $ is its dual coframe. 
+Define connection forms $\omega_{ij}$ in $\Omega^1(M)$ by
+\begin{equation} 
+\omega_{ij}(e_k) \,=\, <\nabla_{e_k}e_i, e_j>  \,=\, \Gamma_{ki}^j \,.
+\end{equation}
+Note that $\omega_{ij} = -\omega_{ji}$. Because $[e_i,e_j]\neq 0$, 
+in general $\Gamma_{ki}^j$ is different from $\Gamma_{ik}^j$.  \\
+
+The Cartan structural equations are:
+\begin{equation} 
+d\omega_i \,=\, \omega_{ij}\wedge \omega_j \man
+d\omega_{ij} \,=\, \omega_{ik}\wedge \omega_{kj} + \Omega_{ij}
+\end{equation}
+For the first identity of (2), we have\\[0.1in]
+$\begin{array}{rcl}
+d\omega_i(e_j, e_k) &=&\ds 
+	\frac{1}{2}\Big(e_j\big(\omega_i(e_k)\big) - e_k\big(\omega_i(e_j)\big) 
+	- \omega_i\big([e_j,e_k]\big) \Big) \\[0.1in]
+&=& \ds 
+	-\frac{1}{2}\big(\Gamma_{jk}^i - \Gamma_{kj}^i\big) \\[0.1in]
+&=& \ds 
+	\frac{1}{2}\big( \Gamma_{ji}^k - \Gamma_{ki}^j \big)\,, \\[0.2in]
+% % % % %
+\big(\omega_{is}\wedge \omega_s\big)(e_j, e_k) &=& \ds 
+	\frac{1}{2}\Big( \omega_{is}(e_j)\, \omega_s(e_k) - \omega_{is}(e_k)\, \omega_s(e_j) \Big) \\[0.1in]
+&=& \ds 
+	\frac{1}{2}\big( \Gamma_{ji}^k - \Gamma_{ki}^j \big).
+\end{array} $ \\[0.2in]
+
+In the second identity of (2), we let
+\begin{equation} 
+\Omega_{ij} \,=\, \frac{1}{2}\,R_{ijkl}\,\omega_k\wedge\omega_l
+\end{equation}
+with \,$R_{ijkl}\,=\, 
+<\nabla_{e_i}\nabla_{e_j}e_k -\nabla_{e_j}\nabla_{e_i}e_k - \nabla_{[e_i, e_j]}e_k, e_l>$. \\[0.1in]
+$\begin{array}{rcl}
+\Omega_{ij}(e_r, e_s) &=& \ds \frac{1}{4} R_{ijrs} - \frac{1}{4} R_{ijsr} \\[0.1in]
+&=& \ds \frac{1}{2}\, R_{ijrs} \\[0.1in]
+&=& \ds \frac{1}{2}\, g\Big(\nabla_{e_i}\nabla_{e_j}e_r -\nabla_{e_j}\nabla_{e_i}e_r - \nabla_{[e_i, e_j]}e_r
+	\,,\, e_s\Big) \\[0.1in]
+&=& \ds 
+	\frac{1}{2}\, g\Big(\nabla_{e_i}(\Gamma_{jr}^p\,e_p) - \nabla_{e_j}(\Gamma_{ir}^p\,e_p) 
+	- \Gamma_{ij}^p \, \Gamma_{pr}^q \, e_q + \Gamma_{ji}^p \, \Gamma_{pr}^q \, e_q 
+	\,,\,e_s\Big) \\[0.1in]
+&=& \ds 
+	\frac{1}{2}\, g\Big(e_i(\Gamma_{jr}^p)\,e_p + \Gamma_{jr}^p\, \Gamma_{ip}^q\, e_q 
+	- e_j(\Gamma_{ir}^p)\,e_p - \Gamma_{ir}^p\, \Gamma_{jp}^q \, e_q 
+	- \Gamma_{ij}^p \, \Gamma_{pr}^q \, e_q + \Gamma_{ji}^p \, \Gamma_{pr}^q \, e_q \,,\,e_s\Big) \\[0.1in]
+&=& \ds 
+	\frac{1}{2}\, \Big(e_i(\Gamma_{jr}^s) - e_j(\Gamma_{ir}^s)
+	+ \Gamma_{jr}^p\, \Gamma_{ip}^s - \Gamma_{ir}^p\, \Gamma_{jp}^s 
+	- \Gamma_{ij}^p \, \Gamma_{pr}^s + \Gamma_{ji}^p \, \Gamma_{pr}^s \Big) 
+\end{array}$ \\
+\newpage
+
+On the other hand,\\[0.1in]
+$\begin{array}{rcl}
+\big(d\omega_{ij} - \omega_{ik} \wedge \omega_{kj}\big)(e_r, e_s) &=& \ds 
+	\frac{1}{2} \Big( e_r(\Gamma_{si}^j) - e_s(\Gamma_{ri}^j) 
+	- (\Gamma_{rs}^p - \Gamma_{sr}^p)\, \Gamma_{pi}^j 
+	- \Gamma_{ri}^k\, \Gamma_{sk}^j + \Gamma_{si}^k\, \Gamma_{rk}^j\Big) \\[0.1in]
+&=& \ds 
+	\frac{1}{2}\Big(e_r(\Gamma_{si}^j) -  e_s(\Gamma_{ri}^j) 
+	+ \Gamma_{si}^k \, \Gamma_{rk}^j - \Gamma_{ri}^k \, \Gamma_{sk}^j
+	- \Gamma_{rs}^p \, \Gamma_{pi}^j + \Gamma_{sr}^p\, \Gamma_{pi}^j \Big) \\[0.1in]
+&=& \ds 
+	\frac{1}{2}\, R_{rsij} \\[0.1in]
+&=& \ds 
+	\frac{1}{2}\, R_{ijrs} \,.
+\end{array}$ \\[0.2in]
+Therefore, the second part of (2) is justified. \\
+
+Let $f$ be a smooth function on $M$. The first covariant derivative of $f$ 
+is defined by its gradient, 
+$$ \nabla f \,=\, df(e_i)\, e_i \,=\, f_i\, e_i. $$
+The second derivative of $f$ is given by
+$$ \begin{array}{rcl}
+\nabla^2 f &=& \nabla(\nabla f) \spa=\spa \nabla(f_i\, e_i) \\[0.1in]
+&=& df_i \otimes e_i + f_i\, \nabla e_i \\[0.1in]
+&=& df_i \otimes e_i + f_i\, \omega_{ij} \otimes e_j \\[0.1in]
+&=& \big(df_i + f_j\, \omega_{ji}\big) \otimes e_i 
+\end{array}$$
+If we write \,$\nabla^2 f \,=\, f_{ik}\, \omega_k \otimes e_i$. then 
+\begin{equation}
+f_{ik}\, \omega_k \,=\, df_i + f_j\, \omega_{ji}
+\end{equation}
+Using the fact that $d^2f = 0$, we obtain
+$$\begin{array}{rcl}
+d\big(f_i \, \omega_i\big) &=& 0 \\[0.1in]
+df_i \wedge \omega_i + f_i\, d\omega_i &=& 0 \\[0.1in]
+\big(df_j + f_i\, \omega_{ij}\big)\wedge \omega_j &=& 0 \\[0.1in]
+f_{jk}\, \omega_k \wedge \omega_j &=& 0.
+\end{array}$$
+Therefore, for every $j$ and $k$, \, $f_{jk} = f_{kj}$. \,
+The Hessian of $f$ is a (0,2)-tensor defined by 
+$$ \mbox{Hess}(f) \,=\, f_{ij}\, \omega_j \otimes \omega_i. $$
+The Laplacian of $f$ is the trace of the Hessian of $f$, i.e.
+\begin{equation}
+\Delta f \,=\, \sum_{j=1}^n f_{jj}
+\end{equation}
+\newpage
+
+Explicitly, \\[0.1in]
+$\begin{array}{rcl}
+f_{jj} &=& \ds df_j(e_j) + f_k\,\omega_{kj}(e_j) \\[0.1in]
+&=& \ds e_j\big(e_j(f)\big) + f_k\, \Gamma_{jk}^j \\[0.1in]
+&=& \ds e_j\big(e_j(f)\big) - f_k\, \Gamma_{jj}^k \\[0.2in]
+\implies \spa \Delta f &=& \ds 
+	\sum_{j=1}^n e_j\big(e_j(f)\big) - f_k\, \Gamma_{jj}^k \,.\\ 
+\end{array}$ \\[0.2in]
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\begin{center} {\sc 2. Area functional}\end{center}
+From here we let $N^n$ be a submanifold of $(M^m, g)$ with $n<m$. 
+Suppose $\{e_1, e_2, \cdots, e_m\}$ is an orthonormal frame on $M$
+while $\{e_1, e_2, \cdots, e_n\}$ forms an orthonormal frame on $N$. \\
+
+Let $\nabla$ be the Riemannian conenction of $g$ on $M$. 
+It projects to be the Riemannian connection $\nabla^N$ on $N$. 
+The second fundamental form of $N$ is defined by
+\begin{equation}
+\mbox{II}(X, Y) \,=\, (\nabla_X Y)^\perp
+\end{equation}
+Here $Z^\perp$ denotes the orthogonal component of $Z$ to $TN$. \\[0.1in]
+$\begin{array}{rcl}
+\mbox{II}(e_i, e_j) &=& (\nabla_{e_i}e_j)^\perp \\[0.1in]
+&=& \ds 
+	\Big(\sum_{k=1}^n \Gamma_{ij}^k\, e_k 
+	+ \sum_{p=n+1}^m \Gamma_{ij}^p\, e_p \Big)^\perp \\[0.2in]
+&=& \ds 
+	\sum_{p=n+1}^m \Gamma_{ij}^p\, e_p \\
+\end{array}$ \\[0.2in]
+
+The mean curvature vector is the trace of $\mbox{II}$ over $TN$.
+\begin{equation}
+{\bf H} \,=\, \mbox{tr}(\mbox{II}) \,=\, \sum_{p=n+1}^m \sum_{j=1}^n \Gamma_{jj}^p\, e_p 
+\end{equation}
+\vspace*{0.1in}
+
+We are going to explain the geometric meaning of the mean curvature vector ${\bf H}$. \\
+
+Let \,$\phi_t: N \to M$\, be a variation of $N$ into $M$ where \,$-\epsilon<t<\epsilon$.
+Fix a point $p$ on $N$. Let \,${\bf x} = \big(x_1, x_2, \cdots, x_n\big)$\,
+be the normal coordinates at $p$ over a neighborhood $U$ with $\bx({\bf 0})=p$. 
+Composited with the normal coordinates, the variation $\phi_t$ is regarded as
+$$ \phi_t = \phi_t(\bx) \,:\, U \to M \,.$$
+Suppose $\phi_0$ is the prescribed embedding of $N$ into $M$, 
+and \,$\ds T=d\phi_t\big(\tvec{t}\big)$\, is always transverse to $N$.  \\
+\newpage
+
+The metric coefficients on $U$ pulled back by the embedding $\phi_t$ are given by
+$$ g_{ij}(\bx, t) \,=\, g\Big(d\phi_t \big(\tvec{x_i}\big)\,,\,
+	d\phi_t \big(\tvec{x_j}\big)\Big)\,. $$
+Moreover, we let
+$$ G(\bx, t) \,=\, \mbox{det}\big(g_{ij}(\bx, t)\big)\,.$$
+
+By definition we have \,$g_{ij}({\bf 0}, 0)=\delta_{ij}$. In the following, we let
+$$ E_j(\bx, t) \,=\, d\phi_t \Big(\tvec{x_j}\Big)\,. $$ 
+Given a fixed $t$, the Christoffel symbols of $g_{ij}(\bx, t)$'s are defined by
+$$ \nabla_{E_i} E_j \,=\, \Gamma_{ij}^k(\bx, t)\, E_k. $$
+Similarly, we have \,$\Gamma_{ij}^k({\bf 0}, 0) = 0$\, for every $i,j,k$. \\[0.1in]
+
+The area functional of $\phi_t$ over $U$ is given by 
+$$ A_t(U) \,=\, \int_U \sqrt{G(\bx, t)}\, d\bx\,.$$
+At the point $p$, 
+$$ \ttvec{\sqrt{G}}{t}({\bf 0}, 0) \,=\, 
+\frac{1}{2\sqrt{G({\bf 0}, 0)}}\, \ttvec{G}{t}({\bf 0}, 0) \,=\,
+\frac{1}{2}\, \ttvec{G}{t}({\bf 0}, 0)\,. $$
+\vspace*{0.1in}
+
+By the first row expansion of $G(\bx, t)$, we have
+$$ G(\bx, t) \,=\, \sum_{j=1}^n g_{1j}(\bx, t)\, c_{1j}(\bx, t) \,,$$
+where $c_{ij}$ is the cofactor at the $(i,j)$-entry. Therefore, \\[0.1in]
+$\begin{array}{rcl}
+\ds \ttvec{G}{t}({\bf 0}, 0) &=& \ds 
+	\sum_{j=1}^n c_{1j}({\bf 0}, 0) \, \ttvec{g_{1j}}{t}({\bf 0}, 0) 
+	\,+\, \sum_{j=1}^n g_{1j}({\bf 0}, 0) \, \ttvec{c_{1j}}{t}({\bf 0}, 0) \\[0.2in]
+&=& \ds 
+	\ttvec{g_{11}}{t}({\bf 0}, 0) \,+\, \ttvec{c_{11}}{t}({\bf 0}, 0) \\
+\end{array} $ \\[0.2in]
+Since $c_{11}(\bx, t)$ is the determinant of the minor matrix of $[g_{ij}(\bx, t)]$
+at the $(1,1)$ entry, we may carry out first row expansion on the minor matrix again.
+We conclude that 
+\begin{equation}
+\ttvec{G}{t}({\bf 0}, 0) \,=\, \sum_{j=1}^n \ttvec{g_{jj}}{t}({\bf 0}, 0) \,.
+\end{equation}
+\newpage
+
+$\begin{array}{rcl}
+\ds \ttvec{G}{t}({\bf 0}, 0) &=& \ds
+	\sum_{j=1}^n \tvec{t}\Big\vert_{t=0}\Big(g\Big(E_j({\bf 0}, t) \,,\, E_j({\bf 0}, t)\Big) \Big) \\[0.2in]
+&=& \ds 
+	\sum_{j=1}^n T\Big(g(E_j, E_j)\Big) \\[0.2in]
+&=& \ds 
+	\sum_{j=1}^n 2\,g\Big((\nabla_T E_j)({\bf 0},0), E_j({\bf 0},0) \Big) 
+\end{array}$ \\[0.2in]
+Since $[T, E_j] = 0$, we have $\nabla_T E_j = \nabla_{E_j}T$.
+At $(\bx, 0)$, let 
+$$T = T^{tan} + T^\perp $$
+on $N$ where $T^{tan}$ is the tangential component and $T^\perp$ is the normal component. Therefore, \\[0.1in]
+$\begin{array}{rcl}
+\ds \ttvec{G}{t}({\bf 0}, 0) &=& \ds 
+	\sum_{j=1}^n 2\,g\Big((\nabla_{E_j} T)({\bf 0},0)\,,\, E_j({\bf 0},0)\Big) \\[0.2in]
+&=& \ds 
+	\sum_{j=1}^n 2\,g\Big((\nabla_{E_j} T^{tan})({\bf 0},0)\,,\, E_j({\bf 0},0)\Big) 
+	\,+\, 2\,g\Big((\nabla_{E_j} T^\perp)({\bf 0},0)\,,\,E_j({\bf 0},0)\Big) \\
+\end{array}$ \\[0.2in]
+At the point $\bx = {\bf 0}$ and $t=0$, 
+$$ \mbox{div}(T^{tan})({\bf 0},0) \,=\, 
+	\sum_{i, j=1}^n	g\Big(\nabla_{E_i} T^{tan}\,,\, E_j\Big)\, g^{ij}({\bf 0},0) \,=\,
+	\sum_{j=1}^n	g\Big(\nabla_{E_j} T^{tan}\,,\, E_j\Big)\,.$$
+It leads to \\[0.1in]
+$\begin{array}{rcl}
+\ds \ttvec{G}{t}({\bf 0}, 0) &=& \ds
+	2\,\mbox{div}(T^{tan})({\bf 0},0) \,+\, 
+	2\,\sum_{j=1}^n g\Big((\nabla_{E_j}T^\perp)({\bf 0},0)\,,\,E_j({\bf 0},0)\Big) \\[0.2in]
+&=& \ds 
+	2\,\mbox{div}(T^{tan})({\bf 0},0) \,+\, 2\,\sum_{j=1}^n E_j\Big(g(T^\perp, E_j)\Big)
+	- g\big(T^\perp, \nabla_{E_j}E_j\big) \\
+\end{array}$ \\[0.2in]
+$T^\perp$ is always orthogonal to the tangent vector $E_j$ on $N$, 
+so \, $g(T^\perp, E_j)=0$\, at $(\bx, 0)$. Hence, \\[0.1in]
+$\begin{array}{rcl}
+\ds \ttvec{G}{t}({\bf 0}, 0) &=& \ds
+	2\,\mbox{div}(T^{tan})({\bf 0}, 0) 
+	\,-\, 2\,\sum_{j=1}^n g\Big(T^\perp({\bf 0}, 0), (\nabla_{E_j}E_j)({\bf 0}, 0) \Big) \\
+\end{array}$ \\[0.2in]
+In terms of the basis $\{E_1, E_2, \cdots, E_n\}$, 
+the mean curvature vector at $({\bf 0},0)$ is found by 
+$$ {\bf H}({\bf 0},0) \,=\, \sum_{i,j=1}^n \mbox{II}(E_i, E_j)\, g^{ij}({\bf 0}, 0) 
+	\,=\, \sum_{j=1}^n \mbox{II}(E_j, E_j) \,=\,
+	\sum_{j=1}^n (\nabla_{E_j}E_j)^\perp({\bf 0}, 0)\,.$$
+Since $T^\perp$ is normal to $N$, we have
+$$ 
+\ttvec{G}{t}({\bf 0}, 0) \,=\, 2\,\mbox{div}(T^{tan})({\bf 0}, 0)
+ 	\,-\, 2\, g\big(T^\perp({\bf 0}, 0) \,,\, {\bf H}({\bf 0},0)\big) \,.
+$$ 
+\newpage
+
+Since the point $p$ on $N$ is arbitrary, we conclude that 
+\begin{equation}
+\ttvec{G}{t}(p,0) \,=\, 2\,\mbox{div}(T^{tan})(p,0) \,-\, 2\, g\big(T^\perp(p,0) \,,\, {\bf H}(p,0)\big)
+\end{equation}
+at any $p$ on $N$. Back to the area functional $A_t$ of $\phi_t$, it gives 
+$$ \frac{d}{dt}dA_t\Big\vert_{(p,0)} \,=\, 
+	\Big(\mbox{div}(T^{tan}) \,-\, g(T^\perp, {\bf H})\Big)\, dA_0(p,0)$$
+Suppose the vector field $T$ is compactly supported on $N$. 
+Then, we integrate both sides on $N$. \\[0.1in]
+$\begin{array}{rcl}
+A'_0(N) &=& \ds \int_N \frac{dA_t}{dt}\Big\vert_{t=0} \\[0.2in]
+&=& \ds \int_N \mbox{div}(T^{tan})\, dA_0 \,-\, \int_N g(T^\perp, {\bf H})\, dA_0 \\[0.2in]
+&=& \ds - \int_N  g(T^\perp, {\bf H})\, dA 
+\end{array} $ \\[0.2in]
+The mean curvature vector ${\bf H}$ is always perpendicular to the direction of the variation, $T$,
+so $A'(0)=0$ for any direction $T$ if and only if \,${\bf H}=0$\, on $N$. \\[0.2in]
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{center} {\sc 3. Embedding in $\mR^N$}\end{center}
+
+Let \,$(x_1, x_2, \cdots, x_N)$\, be the Cartesian coordinates on $\mR^N$. 
+Let $M$ be an $n$-dimensional submanifold of $\mR^N$. Let
+$$  f: U\to \mR^N; \quad (x_1, \cdots, x_N)\,=\, f(u_1,\cdots,u_n) $$ 
+be a conformal parametrization on $M$. Denote the second fundamental form 
+and the mean curvature vector on $f(U)$ by $\mbox{II}$ and ${\bf H}$ respectively. Let 
+$$E_j \,=\, \ttvec{f}{u_j} \quad \mbox{for} \, j=1,\cdots,n\,. $$
+Choose normal vectors \,$E_{n+1}, E_{n+2}, \cdots, E_N$\, so that
+$\mathcal{B}\,=\, \big\{ E_1, E_2, \cdots, E_N \big\}$ is a local frame for $\mR^N$ on $f(U)$.
+We also assume that \,$g(E_i, E_j) \,=\, \lambda \, \delta_{ij}$\, for any $i,\,j$. 
+If we replace $E_j$'s by $$e_j \,=\, \frac{1}{\sqrt{\lambda}}\, E_j$$
+for every $j$, then we get to an orthonormal frame on $\mR^N$.
+Let $\tilde{g}$ and $\tilde{\nabla}$ be the Euclidean metric and its Riemannian connection on $\mR^N$. \\
+
+Given a real-valued function $\phi$ on $f(U)$, \\[0.1in]
+$\begin{array}{rcl}
+\tilde{\nabla}^2 \phi &=& \ds \tilde{\nabla}\big(e_J(\phi)\, e_J \big) \\[0.1in]
+&=& \ds 
+	e_I\,e_J(\phi)\, e^I \otimes e_J \,+\, e_J(\phi)\, e^I \otimes {\tilde\nabla}_{e_I} e_J \\[0.1in]
+&=& \ds 
+	e_I\,e_J(\phi)\, e^I \otimes e_J \,+\, e_J(\phi)\, \tilde{g}\big({\tilde\nabla}_{e_I} e_J\,,\, e_K\big)\, e^I\otimes e_K \\[0.1in]
+&=& \ds 
+	\Big( e_I\,e_J(\phi) \,+\, e_K(\phi)\, \tilde{g}\big({\tilde\nabla}_{e_I} e_K\,,\, e_J\big)\Big)\, e^I\otimes e_J \,. \\
+\end{array}$
+\newpage
+
+Therefore, we have 
+$$ \mbox{Hess}_{\mR^N}(\phi) 
+\,=\, \Big( e_I\,e_J(\phi) \,+\, e_K(\phi)\, \tilde g\big({\tilde\nabla}_{e_I} e_K\,,\, e_J\big)\Big)\, e^I\otimes e^J\,.$$
+We separate the index $I=1,2,\cdots,N$ to two parts: $i=1,\cdots,n$ and $\alpha=n+1,\cdots,N$. \\[0.2in] 
+$\begin{array}{rcl}
+\mbox{Hess}_{\mR^N}(\phi) &=& \ds 
+	e_i\,e_j(\phi) \, e^i\otimes e^j \,+\, e_i\,e_\beta(\phi) \, e^i\otimes e^\beta 
+	\,+\, e_\alpha\,e_j(\phi) \, e^\alpha\otimes e^j \,+\, e_\alpha\,e_\beta(\phi) \, e^\alpha\otimes e^\beta \\[0.1in]
+&& \ds 
+	\,+\, e_K(\phi)\, \tilde{g}\big({\tilde\nabla}_{e_i} e_K\,,\, e_j\big)\, e^i\otimes e^j 
+	\,+\, e_K(\phi)\, \tilde{g}\big({\tilde\nabla}_{e_\alpha} e_K\,,\, e_j\big)\, e^\alpha\otimes e^j \\[0.1in]
+
+&& \ds 
+	\,+\, e_K(\phi)\, \tilde{g}\big({\tilde\nabla}_{e_i} e_K\,,\, e_\beta\big)\, e^i\otimes e^\beta 
+	\,+\, e_K(\phi)\, \tilde{g}\big({\tilde\nabla}_{e_\alpha} e_K\,,\, e_\beta\big)\, e^\alpha\otimes e^\beta
+\end{array}$ \\[0.1in]
+
+Denote the restriction of $\mbox{Hess}_{\mR^N}(\phi)$ to $TM$ by $\mbox{Hess}_{\mR^N}^*(\phi)$. We have \\[0.2in]
+$\begin{array}{rcl}
+\mbox{Hess}_{\mR^N}^*(\phi) &=& \ds
+	e_i\,e_j(\phi) \, e^i\otimes e^j \,+\, e_K(\phi)\, \tilde{g}\big({\tilde\nabla}_{e_i} e_K\,,\, e_j\big)\, e^i\otimes e^j \\[0.2in]
+&=& \ds 
+	e_i\,e_j(\phi) \, e^i\otimes e^j \,+\, e_k(\phi)\, \tilde{g}\big({\tilde\nabla}_{e_i} e_k\,,\, e_j\big)\, e^i\otimes e^j
+	\,+\, e_\alpha(\phi)\, \tilde{g}\big({\tilde\nabla}_{e_i} e_\alpha \,,\, e_j\big)\, e^i\otimes e^j \\[0.2in]
+&=& \ds 
+	\mbox{Hess}_M(\phi) \,-\, e_\alpha(\phi) \, \tilde{g}\big(\mbox{II}(e_i, e_j)\,,\, e_\alpha\big)\, e^i\otimes e^j\,. 
+\end{array}$ \\[0.1in]
+
+Now we put $\phi$ to be the $k$-th component function of $f$, i.e. $\phi = x_k$. Note that $\mbox{Hess}_{\mR^N}(x_k) = 0$
+since every $x_k$ has vanishing second derivatives on $\mR^N$. \\[0.2in]
+$\begin{array}{rcl}
+\mbox{Hess}_M(x_k)(e_i, e_j) &=& \ds 
+	\tilde{g}\big(\mbox{II}(e_i, e_j)\,,\, (\tilde{\nabla}x_k)^\perp \big) \\[0.2in]
+&=& \ds 
+	\tilde{g}\big(\mbox{II}(e_i, e_j)\,,\, \tilde{\nabla}x_k \big) \\[0.2in]
+&=& \ds 
+	\tilde{g}\Big(\mbox{II}(e_i, e_j)\,,\, \tvec{x_k}\Big) \\[0.2in]
+&=& \ds 
+	\mbox{$k$-th component of } \mbox{II}(e_i, e_j)\,.	
+\end{array}$ \\[0.1in]
+
+Therefore, letting \,$\mbox{Hess}_M(f) \,=\, \big(\mbox{Hess}_M(x_1), \cdots, \mbox{Hess}_M(x_N)\big)$\,, we have
+\begin{equation}
+	\mbox{Hess}_M(f) \,=\, \mbox{II}\,.
+\end{equation}
+Take the trace on both sides. 
+\begin{equation}
+	\Delta_M(f) \,=\, {\bf H}\,.
+\end{equation}
+
+\vfill
+\centering{\sc -end-}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\end{document}

@@ -1,0 +1,992 @@
+\documentclass{article}[12pt,a4paper]
+\include{pageStyle2020}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{document}
+\include{codefile2020}
+\pagestyle{empty}
+\begin{center} Laplacian Operator (II) \end{center}
+
+\begin{center} {\sc 4. Third covariant derivatives of function}\end{center}
+Let $(M, g)$ be an $n$-dimensional Riemannian manifold. 
+Let $\{e_1, e_2, \cdots, e_n\}$ be an orthonormal frame on $M$. 
+Suppose $f$ is a smooth real-valued function on $M$. 
+Recall that the first and second covariant derivatives of $f$ are defined by
+$$ \nabla f \,=\, f_j \, e_j \man 
+\nabla^2 f \,=\, f_{ij}\, \omega_j \otimes e_i \,=\, \big(df_i + f_j\, \omega_{ji}\big)\otimes e_i $$
+Let $S=\nabla^2 f$. Note that 
+$$ (\nabla_X S)(Y) \,=\, \nabla_X\big(S(Y)\big) - S(\nabla_X Y) \,=\, 
+	\nabla_X \nabla_Y(\nabla f) \,-\, \nabla_{\nabla_X Y}(\nabla f)\,,$$
+$$ (\nabla_Y S)(X) \,=\, \nabla_Y\big(S(X)\big) - S(\nabla_Y X) \,=\, 
+	\nabla_Y \nabla_X(\nabla f) \,-\, \nabla_{\nabla_Y X}(\nabla f)\,. $$
+Therefore,
+\begin{equation}
+(\nabla_X S)(Y) \,-\, (\nabla_Y S)(X) \,=\, R(X, Y)\,\nabla f\,.
+\end{equation}
+\vspace*{0.1in}
+
+We are computing for $\nabla S$ as follows. \\[0.1in]
+$\begin{array}{rcl}
+\nabla S &=& \ds \nabla \big(f_{ij}\, \omega_j \otimes e_i\big) \\[0.1in] 
+&=& \ds 
+	df_{ij}\, \omega_j \otimes e_i \,+\, f_{ij}\, d\omega_j \otimes e_i 
+	\,-\, f_{ij}\, \omega_j \wedge \nabla e_i \\[0.1in]
+&=& \ds 
+	df_{ij}\, \omega_j \otimes e_i \,+\, f_{ij}\, \big(\omega_{jk} \wedge \omega_k\big) \otimes e_i
+	\,-\, f_{ij}\, \omega_j \wedge \big( \omega_{ik} \otimes e_k\big) \\[0.1in]
+&=& \ds 
+	\big( df_{ij} \,+\, f_{ik}\, \omega_{kj} \,+\, f_{kj}\, \omega_{ki} \big)\,\wedge\, \omega_j \otimes e_i \,.
+\end{array}$ \\[0.1in]
+
+If we write $\nabla^3 f \,=\, f_{ijk}\,\omega_k \wedge \omega_j \otimes e^i$, then we have
+\begin{equation}
+f_{ijk}\,\omega_k \,=\,  df_{ij} \,+\, f_{ip}\, \omega_{pj} \,+\, f_{qj}\, \omega_{qi} \,.
+\end{equation}
+\vspace*{0.1in}
+
+In the following, we justify the equalities
+$$ f_{ij}\,=\, g\big(\nabla_{e_j}(\nabla f)\,,\,e_i\big)
+\man f_{ijk} = g\big((\nabla S)(e_k, e_j)\,,\,e_i\big)\,.$$
+They clarify that the definition of covariant derivatives here match our usual understanding. \\[0.1in]
+$\begin{array}{rcl}
+\nabla_{e_j}(\nabla f) &=& \ds \nabla_{e_j}\big(f_k\, e_k\big) \\[0.1in]
+&=& \ds 
+	e_j\,e_k(f)\, e_k \,+\, f_k \, \nabla_{e_j}e_k \\[0.1in]
+&=& \ds 
+	e_j\,e_k(f)\, e_k \,+\, f_k \, \Gamma_{jk}^l\, e_l \\[0.1in]
+&=& \ds
+	\big(e_j\, e_i(f) \,+\, f_k\, \Gamma_{jk}^i\big)\, e_i \\[0.1in]
+&=& \ds 
+	f_{ij}\, e_i 
+\end{array}$\\[0.2in]
+So the first identity is proven. Moreover, we have \\
+\newpage
+
+$\begin{array}{rcl}
+(\nabla S)(e_k, e_j) &=& \ds \big(\nabla_{e_k}(\nabla^2 f)\big)(e_j) \\[0.1in]
+&=& \ds 
+	\nabla_{e_k}\big(\nabla_{e_j}(\nabla f)\big) \,-\, (\nabla^2 f)(\nabla_{e_k}e_j) \\[0.1in]
+&=& \ds 
+	\nabla_{e_k}\big(f_{ij}\, e_i\big) \,-\, \Gamma_{kj}^l\, \nabla_{e_l}(\nabla f) \\[0.1in]
+&=& \ds 
+	e_k(f_{ij})\, e_i \,+\, f_{ij}\, \Gamma_{ki}^l\, e_l \,-\, \Gamma_{kj}^l \, f_{pl}\, e_p \\[0.1in]
+&=& \ds 
+	\big( e_k(f_{ij}) \,+\, f_{pj}\, \Gamma_{kp}^i \,-\, f_{ip}\, \Gamma_{kj}^p \big) \, e_i \\[0.1in]
+&=& \ds 
+	\big( df_{ij}(e_k) \,+\, f_{pj}\,\omega_{pi}(e_k) \,+\, f_{ip}\, \omega_{pj}(e_k)\big) \, e_i \\[0.1in] 
+&=& \ds 
+	f_{ijk}\, e_i \,.
+\end{array}$\\[0.2in]
+Therefore, the second identity also holds. In equation (1), we could put $X=e_k$ and $Y=e_j$. 
+$$ (\nabla_{e_k} S)(e_j) \,-\, (\nabla_{e_j} S)(e_k) \,=\, R(e_k, e_j)\,\nabla f $$
+$$ \implies\quad f_{ijk}\, e_i \,-\, f_{ikj}\, e_i \,=\, f_p \, R_{kjpq}\, e_q $$
+By comparison, we have 
+\begin{equation} 
+f_{ijk} \,-\, f_{ikj} \,=\,  f_p \, R_{ipjk} \,.
+\end{equation}
+This identity is called the Ricci identity.
+\vspace*{0.2in}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\begin{center} {\sc 5. Covariant derivatives of differential forms}\end{center}
+The covariant derivatives of the covectors $\omega_j$ in the dual frame can be found by:
+$$ (\nabla_X \omega_j)(e_i) \,=\, X\big(\omega_j(e_i)\big) \,-\, \omega_j(\nabla_X e_i)
+\,=\, -\omega_j(\nabla_X e_i) \,. $$
+So we have \,$\nabla_X(\omega_j)\,=\, -\omega_j(\nabla_X e_i)\, \omega_i$\, and hence
+$$ \nabla(\omega_j) \,=\, -\Gamma_{ki}^j\, \omega_k \otimes \omega_i \,=\, 
+	-\omega_{ij} \otimes \omega_i \,=\, \omega_{ji} \otimes \omega_i\,. $$
+
+Let $\omega$ be a $p$-form on the $n$-dimensional manifold $M$. We may let 
+$$ \omega \,=\, \sum_{i_1,\cdots,i_p=1}^n\, a_{i_1\cdots i_{p-1} i_p}\, \omega_{i_p}\wedge\omega_{i_{p-1}}\wedge\cdots\wedge\omega_{i_1}\,,$$
+assuming that \,$a_{i_1\cdots i_{p-1} i_p} \neq 0$\, only when \,$i_p<i_{p-1}<\cdots<i_1$\,. \\
+
+For any vector $X$, we have \\[0.1in]
+$\begin{array}{rcl}
+\nabla_X \omega &=& \ds 
+	da_{i_1\cdots i_p}(X)\, \omega_{i_p}\wedge\cdots\wedge\omega_{i_1}
+	\,+\, a_{i_1\cdots i_p} \,\big(\nabla_X(\omega_{i_p})\big)\wedge\omega_{i_{p-1}}\wedge\cdots\wedge\omega_{i_1} \\[0.1in]
+&& \ds 
+	\,+\, a_{i_1\cdots i_p}\, \omega_{i_p}\wedge \big(\nabla_X(\omega_{i_{p-1}})\big)\wedge\cdots\wedge\omega_{i_1} \\[0.1in]
+&& \ds
+ 	\,+\, \cdots \,+\, a_{i_1\cdots i_p}\, \omega_{i_p}\wedge\omega_{i_{p-1}}\wedge \cdots\wedge 
+	\big( \nabla_X(\omega_{i_1})\big) \\[0.2in]
+&=& \ds
+	da_{i_1\cdots i_p}(X)\,\omega_{i_p}\wedge\cdots\wedge\omega_{i_1} 
+	\,+\, a_{i_1\cdots i_p}\,\omega_{i_pj_p}(X)\, \omega_{j_p}\wedge\omega_{i_{p-1}}\wedge\cdots\wedge\omega_{i_1} \\[0.1in]
+&& \ds
+	\,+\, a_{i_1\cdots i_p}\,\omega_{i_{p-1}j_{p-1}}(X)\, \omega_{i_p}\wedge\omega_{j_{p-1}}\wedge\cdots\wedge\omega_{i_1} \\[0.1in]
+&& \ds 
+	\,+\, \cdots \,+\,
+	a_{i_1\cdots i_p}\, \omega_{i_1j_1}(X)\, \omega_{i_p}\wedge\omega_{i_{p-1}}\wedge\cdots\wedge \omega_{j_1} \,.
+\end{array}$ \\
+\newpage
+
+We would write
+$$ \nabla_X \omega \,=\, 
+	\big(da_{i_1\cdots i_p} + \sum_{r, j_r} a_{i_1\cdots j_r\cdots i_p}\, \omega_{j_r i_r}\big)(X) 
+	\,\,\omega_{i_p}\wedge\cdots\wedge\omega_{i_1}\,.  $$
+
+Therefore, 
+\begin{equation}
+	\nabla\omega \,=\, \Big(da_{i_1\cdots i_p} \,+\, \sum_{r, j_r} a_{i_1\cdots j_r\cdots i_p} \, \omega_{j_r i_r}\Big)
+	\otimes \omega_{i_p}\wedge \cdots \wedge \omega_{i_1}\,.
+\end{equation}
+\vspace*{0.1in}
+
+If we let \,$\nabla \omega \,=\, a_{i_1\cdots i_p,j}\,\omega_j 
+	\otimes \big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) $\,,
+it results in
+$$ a_{i_1 \cdots i_p,j}\, \omega_j \,=\, da_{i_1\cdots i_p} \,+\, \sum_{r, j_r} a_{i_1\cdots j_r\cdots i_p} \, \omega_{j_r i_r}\,. $$
+The coefficient $a_{i_1\cdots i_p,j}$ is found by
+$$ a_{i_1\cdots i_p, j} \,=\, e_j\big(a_{i_1\cdots i_p}\big) \,+\, \sum_{r, j_r} a_{i_1\cdots j_r\cdots i_p} \, \Gamma_{jj_r}^{i_r}\,. $$
+\vspace*{0.1in}
+
+For the moment, we may define every coefficient $a_{j_1\cdots j_p}$ by
+$$ a_{j_1\cdots j_p} \,=\, \det\Big[\omega_{j_r}(e_{i_s})\Big] \, a_{i_1\cdots i_p} $$
+where \,$(i_1,\cdots,i_p)$\, is a rearrangement of \,$(j_1,\cdots,j_p)$\, such that
+\,$i_p<i_{p-1}<\cdots<i_1$\,. As a result
+$$  \omega \,=\, a_{i_1\cdots i_p}\, \omega_{i_p}\wedge\cdots\wedge\omega_{i_1}\,.$$
+Note that we have
+$$ \omega\big(e_{j_p}, \cdots, e_{j_1}\big) \,=\, \det\Big[\omega_{j_r}(e_{i_s})\Big]\, \omega\big(e_{i_p},\cdots, e_{i_1}\big)
+\,=\, \det\Big[\omega_{j_r}(e_{i_s})\Big]\, a_{i_1\cdots i_p} \,=\, a_{j_1\cdots j_p}\,. $$
+
+Therefore, \\[0.1in]
+$\begin{array}{rl}
+&\ds (\nabla_{e_j}\omega)\big(e_{i_p}, e_{i_{p-1}}, \cdots, e_{i_1}\big) \\[0.1in]
+=&\ds 
+	e_j\Big(\omega\big(e_{i_p}, \cdots, e_{i_1}\big) \Big) \,-\,
+	\sum_{r=1}^p \omega\Big(e_{i_p},\cdots, \nabla_{e_j}e_{i_r}, \cdots, e_{i_1}\Big) \\[0.2in]
+=& \ds 
+	e_k\big( a_{j_1\cdots j_p}\big) \,-\, \Gamma_{ji_r}^{j_r}\, a_{i_1\cdots j_r \cdots i_p} \\[0.1in]
+=& \ds 
+	e_k\big( a_{j_1\cdots j_p}\big) \,+\, \Gamma_{jj_r}^{i_r}\, a_{i_1\cdots j_r \cdots i_p} \\[0.1in]
+=& \ds 
+	a_{i_1\cdots i_p, j} \,.
+\end{array}$ \\[0.1in]
+In the symmetric representation of a differential form, we validate that 
+$$ a_{i_1\cdots i_p, j} \,=\, (\nabla_{e_j}\omega)\big(e_{i_p}, e_{i_{p-1}}, \cdots, e_{i_1}\big)\,. $$
+
+\newpage
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+If we define \,$\ds \omega \,=\, \sum a_{i_1\cdots i_p}\, \omega_{i_p} \wedge\cdots\wedge \omega_{i_1}$\, note that\\[0.1in]
+$\begin{array}{rcl}
+d\omega &=& \ds \sum_{i_1,\cdots,i_p} da_{i_1\cdots i_p} \wedge 
+	\omega_{i_p} \wedge\cdots\wedge \omega_{i_1} \\[0.2in]
+&& \ds 
+	+\, \sum_{i_1,\cdots,i_p} \sum_{r} (-1)^{p-r}\, a_{i_1\cdots i_p}\,
+	\omega_{i_p} \wedge\cdots\wedge d\omega_{i_r} \wedge\cdots\wedge \omega_{i_1}\\[0.3in]
+&=& \ds 
+	\sum da_{i_1\cdots i_p} \wedge \omega_{i_p} \wedge\cdots\wedge \omega_{i_1} \\[0.15in]
+&& \ds 
+	+\, \sum (-1)^{p-r}\, a_{i_1\cdots i_r \cdots i_p}\, \omega_{i_rj_r} \wedge \omega_{j_r} \wedge
+	\omega_{i_p} \wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1}\\[0.3in]
+&=& \ds 
+	\sum da_{i_1\cdots i_p} \wedge \omega_{i_p} \wedge\cdots\wedge \omega_{i_1} \\[0.15in]
+&& \ds 
+	+\, \sum a_{i_1\cdots i_r \cdots i_p}\, \omega_{i_rj_r} \wedge
+	\omega_{i_p} \wedge\cdots\wedge \omega_{j_r} \wedge\cdots\wedge \omega_{i_1} \\[0.3in]
+&=& \ds
+	\sum \Big(da_{i_1\cdots i_p} \,+\, \sum a_{i_1\cdots j_r \cdots i_p}\, \omega_{j_ri_r}\Big)
+	\wedge \, \omega_{i_p} \wedge\cdots\wedge \omega_{i_1} \\[0.3in]
+&=& \ds 
+	\sum a_{i_1\cdots i_p, k}\, \omega_k \wedge \omega_{i_p} \wedge\cdots\wedge \omega_{i_1}\,. \\
+\end{array}$ \\[0.1in]
+
+As a result, we have 
+\begin{equation*}
+d\omega \,=\, \sum_{i_1,\cdots,i_p,k} a_{i_1\cdots i_p, k}\, \omega_k \wedge \omega_{i_p} \wedge\cdots\wedge \omega_{i_1}\,.
+\end{equation*}
+
+\newpage
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+For any vector field $Y$, $\nabla_Y \omega$\,  is a $p$-form on $M$. 
+The second covariant derivative of $\omega$ is found by
+$$ \big(\nabla_X \nabla \omega\big)(Y) \,=\, \nabla_X (\nabla_Y \omega) \,-\, \nabla_{\nabla_X Y}\,\omega\,. $$
+Compute for the first term. \\[0.1in]
+$\begin{array}{rl}
+& \Big(\nabla_X (\nabla_Y \omega)\Big)(u_1, \cdots, u_p) \\[0.1in]
+=& \ds
+	X\Big((\nabla_Y \omega)(u_1, \cdots, u_p)\Big) 
+	\,-\, \sum_{r=1}^p (\nabla_Y \omega)\big(u_1, \cdots, \nabla_X u_r, \cdots, u_p\big) \\[0.2in]
+=&\ds 
+	X\Big(Y\big(\omega(u_1, \cdots, u_p)\big)\Big)
+	\,-\, \sum_{s=1}^p X\Big(\omega\big(u_1, \cdots, \nabla_Y u_s, \cdots, u_p \big)\Big) \\[0.1in]
+&\ds 
+	\,-\, \sum_{r=1}^p Y\Big(\omega\big(u_1, \cdots, \nabla_X u_r, \cdots, u_p\big)\Big) 
+	\,+\, \sum_{r\neq s} \omega\big(u_1, \cdots, \nabla_X u_r, \cdots, \nabla_Y u_s, \cdots, u_p\big) \\[0.1in]
+&\ds 
+	\,+\, \sum_{r=1}^p \omega\big(u_1, \cdots, \nabla_Y \nabla_X u_r, \cdots, u_p\big) 
+\end{array}$ \\[0.1in]
+
+Compute for the second term.\\[0.1in]
+$\begin{array}{rl}
+& \big(\nabla_{\nabla_X Y}\,\omega\big)(u_1, \cdots, u_p) \\[0.1in]
+=& \ds 
+	(\nabla_X Y)\Big(\omega(u_1, \cdots, u_p)\Big) \,-\, \sum_{r=1}^p \omega\big(u_1, \cdots, \nabla_{\nabla_X Y}u_r, \cdots, u_p\big)
+\end{array}$ \\[0.1in]
+
+Note that by symmetry, we have \\[0.1in]
+$\begin{array}{rl}
+&\ds \Big(\nabla_X (\nabla_Y \omega)\,-\, \nabla_Y(\nabla_X \omega)\Big)(u_1, \cdots, u_p) \\[0.1in]
+=& \ds 
+	[X, Y]\Big(\omega(u_1, \cdots, u_p)\Big)
+	\,+\, \sum_{r=1}^p \omega\Big(u_1, \cdots, \big(\nabla_Y \nabla_X - \nabla_X \nabla_Y\big)u_r, \cdots, u_p\Big) \,.
+\end{array}$ \\[0.1in]
+
+Moreover, we obtain\\[0.1in]
+$ \begin{array}{rl}
+&\ds \Big(\nabla_{\nabla_X Y}\,\omega - \nabla_{\nabla_Y X}\,\omega \Big)(u_1, \cdots, u_p) \\[0.1in]
+=& \ds 
+	[X, Y]\Big(\omega(u_1, \cdots, u_p)\Big) 
+	\,-\,  \sum_{r=1}^p \omega\big(u_1, \cdots, \nabla_{[X,Y]}u_r, \cdots, u_p\big)\,.
+\end{array}$ \\[0.1in]
+
+Therefore, \\[0.1in]
+$ \begin{array}{rl}
+&\ds \Big((\nabla_X \nabla \omega)(Y) \,-\, (\nabla_Y \nabla \omega)(X)\Big)(u_1, \cdots, u_p) \\[0.2in]
+=& \ds \sum_{r=1}^p \omega\Big(u_1, \cdots, \big(\nabla_Y \nabla_X - \nabla_X \nabla_Y + \nabla_{[X, Y]}\big)\,u_r, \cdots, u_p\Big) \\[0.2in]
+=& \ds \sum_{r=1}^p \omega\Big(u_1, \cdots, R(Y,X)u_r, \cdots, u_p\Big)\,. \\[0.2in]
+\end{array}$ \\
+\newpage
+
+We summary this result as Equation (6).
+\begin{equation}
+\Big((\nabla_X \nabla \omega)(Y) \,-\, (\nabla_Y \nabla \omega)(X)\Big)(u_1, \cdots, u_p) \,=\,
+\sum_{r=1}^p \omega\Big(u_1, \cdots, R(Y,X)u_r, \cdots, u_p\Big)\,.
+\end{equation}
+
+We are now ready to compute for the coefficients of the tensor $\nabla^2 \omega$. Let $\omega$ be the $p$-form
+$$ \omega \,=\, a_{i_1\cdots i_p}\, \omega_{i_p}\wedge \cdots\wedge\omega_{i_1}\,. $$
+$\nabla \omega$\, can be expressed as 
+$$ \nabla \omega \,=\, a_{i_1\cdots i_p,j}\,\omega_j \otimes 
+	\big(\omega_{i_p}\wedge \omega_{i_{p-1}} \wedge \cdots \wedge \omega_{i_1}\big)\,. $$
+
+Take the covariant derivative of $\nabla \omega$. \\[0.2in]
+$\begin{array}{rcl}
+\nabla\big(\nabla \omega\big) &=& \ds 
+	da_{i_1\cdots i_p,j} \wedge \omega_j \otimes 
+	\big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) 
+	\,+\, a_{i_1\cdots i_p,j}\, d\omega_j \otimes \big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) \\[0.1in]
+&& \ds 
+	\,-\, a_{i_1\cdots i_p,j}\,\omega_j \,\wedge\, \nabla\big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1} \big) \\[0.2in]
+&=& 
+	\ds 
+	da_{i_1\cdots i_p,j} \wedge \omega_j \otimes \big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) 
+	\,+\, a_{i_1\cdots i_p,j}\, \omega_{jk}\wedge \omega_k \otimes \big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) \\[0.1in]
+&& \ds
+	\,-\, \sum_{r, j_r} a_{i_1\cdots i_p,j}\,\omega_j \wedge \omega_{i_rj_r}
+	\otimes \Big(\omega_{i_p} \wedge \cdots \wedge \omega_{j_r} \wedge \cdots \wedge \omega_{i_1}\Big) \\[0.2in]
+&=& \ds 
+	da_{i_1\cdots i_p,j} \wedge \omega_j \otimes \big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) 
+	\,+\, a_{i_1\cdots i_p,s}\, \omega_{sj} \wedge \omega_j \otimes \big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) \\[0.1in]
+&& \ds 
+	\,+\, \sum_{r, j_r} a_{i_1 \cdots j_r \cdots i_p,j}\, \omega_{j_r i_r}\wedge \omega_j 
+	\otimes  \big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) \\[0.2in]
+&=& \ds 
+	\Big(da_{i_1\cdots i_p,j} \,+\, a_{i_1\cdots i_p,s}\, \omega_{sj} 
+	\,+\, \sum_{r,j_r} a_{i_1 \cdots j_r \cdots i_p,j}\, \omega_{j_r i_r} \Big)
+	\,\wedge\, \omega_j \otimes \big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) \,.
+\end{array}$ \\[0.1in]
+
+If we write \,$\nabla^2 \omega \,=\, a_{i_1\cdots i_p,jk}\,\,\omega_k \wedge \omega_j 
+\otimes \big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big)$\,, then we have
+\begin{equation}
+a_{i_1\cdots i_p,jk}\,\omega_k \,=\, da_{i_1\cdots i_p,j} \,+\, a_{i_1\cdots i_p,s}\, \omega_{sj} 
+	\,+\, \sum_{r,j_r} a_{i_1 \cdots j_r \cdots i_p,j}\, \omega_{j_r i_r} \,.
+\end{equation}
+
+If we assume that \,$a_{i_1\cdots i_p} \,=\, \omega\big(e_{i_p}, \cdots, e_{i_1}\big)$\, as before,
+we may justify that 
+$$ a_{i_1\cdots i_p, jk} \,=\, \big((\nabla_{e_k} \nabla\omega)(e_j)\big)(e_{i_p}, \cdots, e_{i_1})\,. $$
+
+Expanding the right hand side of the equation, we have \\[0.1in]
+$\begin{array}{rl}
+& \ds \big((\nabla_{e_k} \nabla\omega)(e_j)\big)(e_{i_p}, \cdots, e_{i_1}) \\[0.2in]
+=& \ds 
+	e_k\Big((\nabla_{e_j}\omega)(e_{i_p}, \cdots, e_{i_1})\Big)
+	\,-\,(\nabla_{\nabla_{e_k}e_j}\omega) (e_{i_p}, \cdots, e_{i_1}) 
+	\,-\, \sum_{r=1}^p (\nabla_{e_j}\omega)\big(e_{i_p}, \cdots, \nabla_{e_k} e_{i_r}, \cdots, e_{i_1}\big) \\[0.2in]
+=& \ds 
+	e_k\big(a_{i_1\cdots i_p, j}\big) \,-\, a_{i_1 \cdots i_p,s}\,\Gamma_{kj}^s 
+	\,-\, \sum_{r, j_r} a_{i_1\cdots j_r \cdots i_p, j} \, \Gamma_{k i_r}^{j_r} \\[0.2in]
+=& \ds 
+	e_k\big(a_{i_1\cdots i_p, j}\big) \,+\, a_{i_1 \cdots i_p,s}\,\Gamma_{ks}^j
+	\,+\, \sum_{r, j_r} a_{i_1\cdots j_r \cdots i_p, j} \, \Gamma_{k j_r}^{i_r} \\[0.2in]
+=& \ds 
+	a_{i_1\cdots i_p, jk} \,.
+\end{array}$ \\
+\newpage
+
+Put the above identity to Equation (5). \\[0.1in]
+$\begin{array}{lcl}
+\Big((\nabla_{e_k} \nabla \omega)(e_j) \,-\, (\nabla_{e_j} \nabla \omega)(e_k)\Big)(e_{i_p}, \cdots, e_{i_1})
+&=& \ds a_{i_1\cdots i_p, jk} \,-\, a_{i_1\cdots i_p, kj} \\[0.2in]
+% 
+\ds \sum_{r=1}^p \omega\Big(e_{i_p}, \cdots, R(e_j,e_k)e_{i_r}, \cdots, e_{i_1}\Big) 
+&=& \ds
+	\sum_{r, j_r} R_{jk i_r j_r}\, a_{i_1\cdots j_r\cdots i_p} \\ 
+\end{array} $\\[0.1in]
+
+Therefore, Equation (5) becomes: 
+\begin{equation}
+a_{i_1\cdots i_p, jk} \,-\, a_{i_1\cdots i_p, kj} \,=\, \sum_{r, j_r} a_{i_1\cdots j_r\cdots i_p} \, R_{jk i_r j_r}
+\end{equation}
+when $\omega$ is in the symmetric representation. \\
+\vspace*{0.2in}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\begin{center} {\sc 6. Codifferential of differential forms}\end{center}
+When $(M,g)$ is an $n$-dimensional manifold, it has a positive volume form
+$$ \Omega \,=\, \omega_1 \wedge \omega_2 \wedge \cdots \wedge \omega_n\,. $$ 
+The Hodge star operator $\ast$ on $M$ sends any $p$ form to an $(n-p)$ form, 
+$$ \ast\big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) 
+\,=\, \mbox{sgn}(I, I^c) \, \omega_{i_n} \wedge \cdots \wedge \omega_{i_{p+1}}\,. $$
+
+Here we set the $p$-tuple \,$I \,=\, (i_p, \cdots, i_1)$\,. $I^c$ is the complement of $I$, 
+defined by \,$(i_{n}, \cdots, i_{p+1})$\, such that the set \,$\big\{i_1, \cdots, i_p, i_{p+1}, \cdots, i_n \big\}$\,
+coincides with \,$\big\{1, \cdots, n\big\}$\,. Moreover, we let 
+$$ \big(\omega_{i_p} \wedge \cdots \wedge \omega_{i_1}\big) \wedge 
+	\big(\omega_{i_n} \wedge \cdots \wedge \omega_{i_{p+1}}\big) \,=\, \mbox{sgn}(I, I^c) \, \Omega\,.$$
+
+As a remark, for every unordered combination of $p$ elements in $\{1, \cdots, n\}$, 
+there is a unique ordered permutation $I \,=\, (i_p, i_{p-1}, \cdots, i_1)$ such that 
+$i_p < i_{p-1} < \cdots < i_1$. Then, we may specify a complementary tuple of $I$, 
+\,$I^c \,=\, \big(i_n, \cdots, i_{p+1}\big)$\,with \,$i_n < i_{n-1} < \cdots < i_{p+1}$\,.
+Under this approach, we could specify $I^c$ without ambiguity. \\
+
+The codifferential operator $\delta$ sends a $p$-form to a $(p-1)$-form through
+$$ \delta \omega \,=\, (-1)^{n(p+1)+1} \, \ast d \ast \omega \,. $$
+Given that \,$\omega \,=\, a_{i_1\cdots i_p}\, \omega_{i_p} \wedge \cdots \wedge \omega_{i_1}$\,, we may prove that 
+\begin{equation}
+	\delta \omega \,=\, \sum_{r=1}^p (-1)^{r+p^2+1} a_{i_1\cdots i_r\cdots i_p, i_r}\,
+	\omega_{i_p} \wedge\cdots\wedge \omega_{i_{r+1}} \wedge \omega_{i_{r-1}} \wedge\cdots\wedge \omega_{i_1} \,.
+\end{equation}
+
+For simplicity, we assume that the $p$-tuple \,$I\,=\,(k_p, \cdots, k_1)$\, is fixed, so $\omega$ is defined by
+$$ \omega \,=\, a_{k_1\cdots k_p}\, \omega_{k_p}\wedge \cdots \wedge \omega_{k_1}\,.$$
+\newpage 
+
+The right hand side of Equation (8) is expanded as follows. \\[0.1in]
+$\begin{array}{rl} 
+& \ds \sum_{r=1}^p (-1)^{r+p^2+1} \, a_{i_1\cdots i_r\cdots i_p, i_r}\,
+	\omega_{i_p} \wedge\cdots\wedge \omega_{i_{r+1}} \wedge \omega_{i_{r-1}} \wedge\cdots\wedge \omega_{i_1} \\[0.3in]
+=& \ds 
+	\sum_{r, i_r} (-1)^{r+p^2+1} e_{i_r}\big(a_{i_1 \cdots i_p}\big) \,
+	\omega_{i_p} \wedge\cdots\wedge \omega_{i_{r+1}} \wedge \omega_{i_{r-1}} \wedge\cdots\wedge \omega_{i_1} \\[0.15in]
+& \ds 
+	+\, \sum_{r, i_r} (-1)^{r+p^2+1} \, \sum_{s, j_s} \big(a_{i_1 \cdots j_s \cdots i_p}\, \Gamma_{i_r j_s}^{i_s}\big) \, 
+	\omega_{i_p} \wedge\cdots\wedge \omega_{i_{r+1}} \wedge \omega_{i_{r-1}} \wedge\cdots\wedge \omega_{i_1}\\[0.3in]
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+=& \ds 
+	\sum_{r=1}^p (-1)^{r+p^2+1}\, e_{k_r}\big(a_{k_1 \cdots k_p}\big) \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.15in] 
+& \ds 
+	+\, \sum_{r=1}^p (-1)^{r+p^2+1} \, \sum_{s\neq r} \big(a_{k_1\cdots j_s\cdots k_r\cdots k_p}\, \Gamma_{k_r j_s}^{i_s}\big) \, 
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge  \omega_{i_s} 
+	\wedge\cdots\wedge \omega_{k_1} \\[0.15in]	
+& \ds 
+	+\, \sum_{r=1}^p (-1)^{r+p^2+1} \, \big(a_{k_1\cdots j_r \cdots k_p}\, \Gamma_{i_r j_r}^{i_r}\big)\, 
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.3in]
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+=& \ds 
+	\sum_{r=1}^p (-1)^{r+p^2+1}\, e_{k_r}\big(a_{k_1 \cdots k_p}\big) \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.15in] 
+& \ds 
+	+\, \sum_{(r,s):\, r\neq s} (-1)^{r+p^2+1} \, a_{k_1 \cdots k_s \cdots k_r \cdots k_p}\, \Gamma_{k_r k_s}^{i_s} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge  \omega_{i_s} 
+	\wedge\cdots\wedge \omega_{k_1} \\[0.15in]	
+& \ds 
+	+\, \sum_{r=1}^p (-1)^{r+p^2+1} \, a_{k_1 \cdots k_p} \, \Gamma_{i_r k_r}^{i_r} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.3in]
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+=& \ds 
+	\sum_{r=1}^p (-1)^{r+p^2+1}\, e_{k_r}\big(a_{k_1 \cdots k_p}\big) \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.15in] 
+& \ds 	
+	+\, \sum_{r\neq s} (-1)^{r+p^2+1} \, a_{k_1\cdots k_p} \, \Gamma_{k_r k_s}^{k_r} \, (-1)^{r-s+1}\, 
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_s}} \wedge\cdots\wedge \omega_{k_1} \\[0.15in]	
+& \ds 
+	+\, \sum_{r\neq s} (-1)^{r+p^2+1} \, a_{k_1 \cdots k_p}\, \Gamma_{k_r k_s}^{k_{\alpha(s)}} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge  \omega_{k_{\alpha(s)}} 
+	\wedge\cdots\wedge \omega_{k_1} \\[0.15in]	
+& \ds 
+	+\, \sum_{r=1}^p (-1)^{r+p^2+1} \, a_{k_1 \cdots k_p} \, \Gamma_{i_r k_r}^{i_r} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.3in]
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+=& \ds 
+	\sum_{r=1}^p (-1)^{r+p^2+1}\, e_{k_r}\big(a_{k_1 \cdots k_p}\big) \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.15in] 
+& \ds 
+	+\, \sum_{r\neq s} (-1)^{r+p^2+1} \, a_{k_1 \cdots k_p}\, \Gamma_{k_r k_s}^{k_{\alpha(s)}} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge  \omega_{k_{\alpha(s)}} 
+	\wedge\cdots\wedge \omega_{k_1} \\[0.15in]	
+& \ds 
+	+\, \sum_{s=1}^p (-1)^{p^2+s}\, a_{k_1\cdots k_p} \, \Gamma_{k_r k_s}^{k_r} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_s}} \wedge\cdots\wedge \omega_{k_1} \\[0.15in]	
+& \ds 
+	+\, \sum_{r=1}^p (-1)^{r+p^2+1} \, a_{k_1 \cdots k_p} \, \Gamma_{i_r k_r}^{i_r} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\
+\end{array} $ \\
+
+\newpage 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+Therefore, the right hand side becomes:\\[0.1in]
+$\begin{array}{rl} 
+= & \ds 
+	\sum_{r=1}^p (-1)^{r+p^2+1}\, e_{k_r}\big(a_{k_1 \cdots k_p}\big) \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.15in] 
+& \ds 
+	+\, \sum_{r\neq s} (-1)^{r+p^2+1} \, a_{k_1 \cdots k_p}\, \Gamma_{k_r k_s}^{k_{\alpha}} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge  \omega_{k_{\alpha}}^{(s)}
+	\wedge\cdots\wedge \omega_{k_1} \\[0.15in]	
+& \ds 
+	+\, \sum_{r=1}^p (-1)^{r+p^2+1} \, a_{k_1 \cdots k_p} \, \Gamma_{k_{\alpha} k_r}^{k_{\alpha}} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \,.
+\end{array}$ \\[0.1in]
+
+In the second term above, $\omega_{k_{\alpha}}^{(s)}$ means that the term $\omega_{k_{\alpha}}$ 
+lies in the $s$-th position of the wedge product. 
+In order to justify Equation (8), we specify the complement of the $p$-tuple $I$ as
+$$ I^c \,=\, \big(k_n, k_{n-1}, \cdots, k_{p+1}\big)\,. $$
+Immediately, we have
+$$  \ast \, \omega \,=\, a_{k_1\cdots k_p}\, \mbox{sgn}(I, I^c)\, \omega_{k_n} \wedge\cdots\wedge \omega_{k_{p+1}}\,.  $$
+% % % % %
+Therefore, \\[0.1in]
+$\begin{array}{rcl} 
+d\, \ast\, \omega &=& \ds 
+	\mbox{sgn}(I, I^c)\, da_{k_1\cdots k_p} \wedge \omega_{k_n} \wedge\cdots\wedge \omega_{k_{p+1}} \\[0.1in]
+&&\ds
+	+\, \sum_{\alpha=p+1}^n a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, (-1)^{n-\alpha}\, 
+	\omega_{k_n} \wedge\cdots\wedge d\omega_{k_\alpha} \wedge\cdots\wedge \omega_{k_{p+1}} \\[0.2in]
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+&=& \ds 
+	\sum_{r=1}^p \mbox{sgn}(I, I^c)\, e_{k_r}\big(a_{k_1\cdots k_p}\big) \,
+	\omega_{k_r} \wedge \omega_{k_n} \wedge\cdots\wedge \omega_{k_{p+1}} \\[0.1in]
+&& \ds 
+	+\, \sum_{\alpha=p+1}^n (-1)^{n-\alpha}\, a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, \omega_{k_\alpha j}\wedge \omega_j 
+	\wedge \omega_{k_n} \wedge\cdots\wedge \widetilde{\omega_{k_\alpha}} \wedge\cdots\wedge \omega_{k_{p+1}} \\[0.2in]
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+&=& \ds 
+	\sum_{r=1}^p \mbox{sgn}(I, I^c)\, e_{k_r}\big(a_{k_1\cdots k_p}\big) \,
+	\omega_{k_r} \wedge \omega_{k_n} \wedge\cdots\wedge \omega_{k_{p+1}} \\[0.1in]
+&& \ds 
+	+\, \sum_{\alpha=p+1}^n (-1)^{n-\alpha}\, a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, \Gamma_{m\, k_\alpha}^j \, \omega_m \wedge \omega_j 
+	\wedge \omega_{k_n} \wedge\cdots\wedge \widetilde{\omega_{k_\alpha}} \wedge\cdots\wedge \omega_{k_{p+1}} \\[0.2in]
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+&=& \ds 
+	\sum_{r=1}^p \mbox{sgn}(I, I^c)\, e_{k_r}\big(a_{k_1\cdots k_p}\big) \,
+	\omega_{k_r} \wedge \omega_{k_n} \wedge\cdots\wedge \omega_{k_{p+1}} \\[0.1in] 
+&& \ds 
+	+\, \sum_{\alpha} (-1)^{n-\alpha}\, a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, \Gamma_{k_\alpha \, k_\alpha}^j \,
+	\omega_{k_\alpha} \wedge \omega_j \wedge \omega_{k_n} \wedge\cdots\wedge \widetilde{\omega_{k_\alpha}} 
+	\wedge\cdots\wedge \omega_{k_{p+1}} \\[0.1in]
+&& \ds 
+	+\, \sum_{s=1}^p (-1)^{n-\alpha}\, a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, \Gamma_{k_s\, k_\alpha}^j \,
+ 	\omega_{k_s} \wedge  \omega_j \wedge \omega_{k_n} \wedge\cdots\wedge \widetilde{\omega_{k_\alpha}} 
+	\wedge\cdots\wedge \omega_{k_{p+1}} \\[0.2in]
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+&=& \ds 
+\sum_{r=1}^p \mbox{sgn}(I, I^c)\, e_{k_r}\big(a_{k_1\cdots k_p}\big) \,
+	\omega_{k_r} \wedge \omega_{k_n} \wedge\cdots\wedge \omega_{k_{p+1}} \\[0.1in] 
+&& \ds 
+	-\, \sum_{r, \alpha} a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, \Gamma_{k_\alpha \, k_\alpha}^{k_r} \,
+	\omega_{k_r} \wedge \omega_{k_n} \wedge\cdots\wedge \omega_{k_{p+1}} \\[0.1in]
+&& \ds 
+	+\, \sum_{s\neq r} a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, (-1)^{n-\alpha}\, \Gamma_{k_s\, k_\alpha}^{k_r} \,
+ 	\omega_{k_s} \wedge  \omega_{k_r} \wedge \omega_{k_n} \wedge\cdots\wedge \widetilde{\omega_{k_\alpha}} 
+	\wedge\cdots\wedge \omega_{k_{p+1}} \,.
+\end{array}$
+\newpage
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+We then compute for \,$(-1)^{n(p+1)+1} \, \ast d \ast \omega $.\, First of all,  \\[0.1in]
+$\begin{array}{rl}
+&\ds 
+	(-1)^{n(p+1)+1}\, \ast\,\bigg(\sum_{r=1}^p \mbox{sgn}(I, I^c)\, e_{k_r}\big(a_{k_1\cdots k_p}\big) \,
+	\omega_{k_r} \wedge \omega_{k_n} \wedge\cdots\wedge \omega_{k_{p+1}} \bigg) \\[0.3in]
+=& \ds 
+	\sum_r \left[\begin{array}{l}
+		(-1)^{n(p+1)+1}\, \mbox{sgn}(I, I^c)\, e_{k_r}\big(a_{k_1\cdots k_p}\big) \, 
+		\mbox{sgn}\Big(\big(k_r, k_n, \cdots, k_{p+1}\big)\,,\, \big(k_p, \cdots, \widetilde{k_r}, \cdots, k_1\big)\Big) \\
+		\cdot \, \Big(\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1}\Big) 
+	\end{array}\right]\\[0.3in]
+=& \ds 
+	\sum_r (-1)^{np+n+1}\, (-1)^{n-r}\, \mbox{sgn}(I, I^c)\, \mbox{sgn}(I^c, I)\, e_{k_r}\big(a_{k_1\cdots k_p}\big) \, 
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.3in]
+=& \ds 
+	\sum_r (-1)^{np-r+1} \, (-1)^{(n-p)p} \, e_{k_r}\big(a_{k_1\cdots k_p}\big) \, 
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.3in]
+=& \ds 
+	\sum_r (-1)^{p^2+r+1} \,  e_{k_r}\big(a_{k_1\cdots k_p}\big) \, 
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\
+\end{array}$ \\[0.1in]
+
+Apply the Hodge star operator to the second term of \,$d\, \ast \,\omega$. \\[0.1in]
+$\begin{array}{rl}
+&\ds 
+	(-1)^{n(p+1)+1}\, \ast\,\bigg( 
+	-\, \sum_{r} a_{k_1\cdots k_p} \, \mbox{sgn}(I, I^c)\, \Gamma_{k_\alpha \, k_\alpha}^{k_r} \,
+	\omega_{k_r} \wedge \omega_{k_n} \wedge\cdots\wedge \omega_{k_{p+1}} \bigg) \\[0.3in]
+=& \ds 
+	\sum_{r} \left[\begin{array}{l}
+		(-1)^{np+n} \, a_{k_1\cdots k_p} \, \mbox{sgn}(I, I^c)\, \Gamma_{k_\alpha \, k_\alpha}^{k_r} \,
+		\mbox{sgn}\Big(\big(k_r, k_n, \cdots, k_{p+1}\big)\,,\,\big(k_p, \cdots, \widetilde{k_r}, \cdots, k_1\big)\Big) \\
+		\cdot \, \Big(\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1}\Big) 
+	\end{array}\right] \\[0.3in]
+=& \ds 
+	\sum_{r} (-1)^{np+n}\, (-1)^{n-r}\, a_{k_1\cdots k_p} \, \Gamma_{k_\alpha \, k_\alpha}^{k_r} \,
+	\mbox{sgn}(I, I^c)\, \mbox{sgn}(I^c, I) \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.3in]
+=& \ds 
+	\sum_{r} (-1)^{np-r}\, (-1)^{(n-p)p}\, a_{k_1\cdots k_p} \, \Gamma_{k_\alpha \, k_\alpha}^{k_r} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\[0.3in]
+=& \ds 
+	\sum_r (-1)^{p^2+r+1} \, a_{k_1\cdots k_p} \, \Gamma_{k_\alpha \, k_r}^{k_\alpha} \,
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_{k_1} \\
+\end{array}$ \\[0.1in]
+
+We compute for the third term of \,$d\, \ast \,\omega$. .\\[0.1in]
+$\begin{array}{rl}
+&\ds 
+	(-1)^{n(p+1)+1}\,\ast\, \bigg( 
+	\sum_{s\neq r} a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, (-1)^{n-\alpha}\, \Gamma_{k_s\, k_\alpha}^{k_r} \,
+ 	\omega_{k_s} \wedge  \omega_{k_r} \wedge \omega_{k_n} \wedge\cdots\wedge \widetilde{\omega_{k_\alpha}} 
+	\wedge\cdots\wedge \omega_{k_{p+1}}\bigg)\\[0.2in]
+=& \ds 
+	\sum_{s\neq r} \left[\begin{array}{l}
+	(-1)^{np+n+1}\, a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, (-1)^{n-\alpha}\, \Gamma_{k_s\, k_\alpha}^{k_r} \\[2pt]
+	\cdot \, \mbox{sgn}\Big(\big(k_s, k_r, k_n, \cdots, \widetilde{k_\alpha}, \cdots, k_{p+1}\big)\,,\,
+	\big(k_\alpha, k_p, \cdots, \widetilde{k_r}, \cdots, \widetilde{k_s}, \cdots, k_1\big)\Big) \\[2pt]
+	\cdot \, \Big(\omega_{k_\alpha} \wedge \omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \widetilde{\omega_{k_s}} 
+	\wedge\cdots\wedge \omega_1 \Big)
+	\end{array}\right] \\[0.5in]
+=& \ds 
+	\sum_{s\neq r} \left[\begin{array}{l}
+	(-1)^{np+\alpha+1}\, a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, \Gamma_{k_s\, k_\alpha}^{k_r} \\[2pt]
+	\cdot \,\mbox{sgn}\Big(\big(k_s, k_r, k_n, \cdots, \widetilde{k_\alpha}, \cdots, k_{p+1}\big)\,,\,
+	\big(k_\alpha, k_p, \cdots, \widetilde{k_r}, \cdots, \widetilde{k_s}, \cdots, k_1\big)\Big) \\[2pt]
+	\cdot \, \Big(\omega_{k_\alpha} \wedge \omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \widetilde{\omega_{k_s}} 
+	\wedge\cdots\wedge \omega_1 \Big)
+	\end{array} \right]
+\end{array}$
+\newpage 
+
+When $s>r$, \\[0.1in]
+$\begin{array}{rl} 
+& \ds  
+	\mbox{sgn}\Big(\big(k_s, k_r, k_n, \cdots, \widetilde{k_\alpha}, \cdots, k_{p+1}\big)\,,\,
+	\big(k_\alpha, k_p, \cdots, \widetilde{k_s}, \cdots, \widetilde{k_r}, \cdots, k_1\big)\Big)\\[4pt]
+& \ds 
+	\cdot \, \Big(\omega_{k_\alpha} \wedge \omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_s}} 
+	\wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_1\Big) \\[0.2in]
+=& \ds 
+	(-1)^{\alpha-p-1} \, (-1)^{n-s+1}\, (-1)^{n-r}\, \mbox{sgn}(I^c, I)  \,
+	(-1)^{p-r-1}\, \omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_s}} \wedge\cdots\wedge 
+	\omega_{k_\alpha}^{(r)} \wedge\cdots\wedge \omega_1 \\[0.2in]
+=& \ds 
+	(-1)^{\alpha+s+1} \, \mbox{sgn}(I^c, I)\, 
+	\omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_s}} \wedge\cdots\wedge 
+	\omega_{k_\alpha}^{(r)} \wedge\cdots\wedge \omega_1
+\end{array}$ \\[0.1in]
+
+When $s<r$, \\[0.1in]
+$\begin{array}{rl} 
+& \ds 
+	\mbox{sgn}\Big(\big(k_s, k_r, k_n, \cdots, \widetilde{k_\alpha}, \cdots, k_{p+1}\big)\,,\,
+	\big(k_\alpha, k_p, \cdots, \widetilde{k_r}, \cdots, \widetilde{k_s}, \cdots, k_1\big)\Big)\\[4pt]
+& \ds 
+	\cdot\, \Big(\omega_{k_\alpha} \wedge \omega_{k_p} \wedge\cdots\wedge \widetilde{\omega_{k_r}} 
+	\wedge\cdots\wedge \widetilde{\omega_{k_s}} \wedge\cdots\wedge \omega_1\Big) \\[0.2in]
+
+=& \ds (-1)^{\alpha-p-1}\, (-1)^{n-r}\, (-1)^{n-s} \, \mbox{sgn}(I^c, I)\, (-1)^{p-r}
+	\omega_{k_p} \wedge\cdots\wedge \omega_{k_\alpha}^{(r)} \wedge\cdots\wedge \widetilde{\omega_{k_s}} 
+	\wedge\cdots\wedge \omega_1 \\[0.2in]
+=& \ds 
+	(-1)^{\alpha+s+1} \, \mbox{sgn}(I^c, I)\, 
+	\omega_{k_p} \wedge\cdots\wedge \omega_{k_\alpha}^{(r)} \wedge\cdots\wedge \widetilde{\omega_{k_s}} 
+	\wedge\cdots\wedge \omega_1 \,.\\[0.2in]
+\end{array}$ \\[0.1in]
+
+Therefore, the third term becomes \\[0.1in]
+$\begin{array}{rl} 
+& \ds \sum_{s\neq r} \left[ \begin{array}{l}
+		(-1)^{np+\alpha+1}\, a_{k_1\cdots k_p} \mbox{sgn}(I, I^c)\, \Gamma_{k_s\, k_\alpha}^{k_r} \\[4pt]
+		\cdot \,(-1)^{\alpha+s+1} \, \mbox{sgn}(I^c, I) \, 
+		\Big( \omega_{k_p} \wedge\cdots\wedge \omega_{k_\alpha}^{(r)} \wedge\cdots\wedge \widetilde{\omega_{k_s}} 
+		\wedge\cdots\wedge \omega_1 \Big) 
+	\end{array} \right] \\[0.4in]
+=& \ds 
+	\sum_{s\neq r} (-1)^{np+\alpha+1}\, (-1)^{\alpha+s+1}\, (-1)^{(n-p)p} \,
+	a_{k_1\cdots k_p} \, \Gamma_{k_s\, k_\alpha}^{k_r} \, 
+	\omega_{k_p} \wedge\cdots\wedge \omega_{k_\alpha}^{(r)} \wedge\cdots\wedge \widetilde{\omega_{k_s}} \wedge\cdots\wedge \omega_1 
+	\\[0.3in]
+=& \ds 
+	\sum_{s\neq r} (-1)^{p^2+s}\, a_{k_1\cdots k_p} \, \Gamma_{k_s\, k_\alpha}^{k_r} \, 
+	\omega_{k_p} \wedge\cdots\wedge \omega_{k_\alpha}^{(r)} \wedge\cdots\wedge \widetilde{\omega_{k_s}} \wedge\cdots\wedge \omega_1 \\[0.3in]
+=& \ds 
+	\sum_{r\neq s} (-1)^{p^2+r +1} \, a_{k_1\cdots k_p} \, \Gamma_{k_r\, k_s}^{k_\alpha} \,
+	\omega_{k_p} \wedge\cdots\wedge \omega_{k_\alpha}^{(s)} \wedge\cdots\wedge \widetilde{\omega_{k_r}} \wedge\cdots\wedge \omega_1\,. \\
+\end{array}$ \\[0.1in]
+
+By comparsion of components on both sides, we have established Equation (8). \\
+\newpage
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\begin{center} {\sc 7. Laplacian of differential forms}\end{center}
+The Laplacian of a $p$-form is defined by
+$$ \Delta \omega \,=\, -\,d \, \delta \omega \,-\, \delta\, d\, \omega\,. $$
+We first consider the case that $\omega$ is a 1-form. Let \,$\omega=\sum_{j} a_j \, \omega_j$\,.
+In terms of its covariant derivative, we have \,$d\omega \,=\, \sum_j a_{j,k} \, \omega_k \wedge \omega_j$\,.
+By Equation (8), we find that 
+$$ \delta \omega \,=\, \delta\big( a_j\, \omega_j \big) \,=\, -\, \sum_j a_{j,j} 
+\quad \implies \quad d\, \delta \, \omega \,=\, -\, \sum_j da_{j,j}\,. $$
+The second covariant derivative of $\omega$ is described by
+$$ a_{i,jk}\, \omega_k \,=\, da_{i,j} \,+\, a_{i,s}\, \omega_{sj} \,+\, a_{r,j}\, \omega_{ri}\,.$$
+Note that 
+$$ \sum_{j,k} a_{j,jk} \, \omega_k 
+	\,=\, \sum_{j} da_{j,j} \,+\, \sum_{j,s} a_{j,s}\, \omega_{sj} \,+\, \sum_{r, j} a_{r, j}\, \omega_{rj} 
+	\,=\, \sum_{j} da_{j,j}\,.$$
+Therefore,
+$$d\, \delta \, \omega \,=\,  - a_{j,jk}\, \omega_k\,.$$
+\vspace*{0.1in}
+
+On the other hand, we have \, $\delta\, d\, \omega \,=\, \delta\big( a_{j,k}\,\omega_k \wedge \omega_j \big)$\,.
+Let \,$b_{jk}\,=\, a_{j,k}$\, and consider \,$\beta \,=\, b_{jk}\,\omega_k \wedge \omega_j$\, in the following.
+By Equation (8), \\[0.1in]
+$\begin{array}{rcl}
+\delta\, d\, \omega &=& \ds \sum_{\alpha=1,2} (-1)^{\alpha +5} \, b_{i_1\cdots i_\alpha\cdots i_2, i_\alpha}\, 
+	\omega_{i_2} \wedge\cdots\wedge \widetilde{\omega_{i_\alpha}} \wedge\cdots\wedge \omega_{i_1} \\[0.2in]
+&=& \ds 
+	(-1)^6\, b_{j_1 i_2, j_1}\, \omega_{i_2} \,+\, (-1)^7 \, b_{i_1 j_2, j_2}\, \omega_{i_1} \\[0.1in]
+&=& \ds 
+	b_{jk, j}\, \omega_k \,-\, b_{kj, j}\, \omega_k \\[0.1in] 
+&=& \ds 
+	\big( b_{jk, j} \,-\, b_{kj, j}\big) \, \omega_k
+\end{array}$ \\[0.1in]
+
+The first covariant derivatives of $\beta$ are found by
+$$ b_{jk,l}\, \omega_l \,=\, db_{jk} \,+\, b_{rk}\, \omega_{rj} \,+\, b_{js}\, \omega_{sk}
+\,=\, da_{j,k} \,+\, a_{r,k}\, \omega_{rj} \,+\, a_{j,s}\, \omega_{sk}\,.$$
+So, \,$ b_{jk,l} \,=\, e_l(a_{j,k}) \,+\, a_{r,k}\, \Gamma_{lr}^j \,+\, a_{j,s}\, \Gamma_{ls}^k$\,.
+Note that we also have
+$$ a_{j, kl}\, \omega_l \,=\, da_{j,k} \,+\, a_{j,s}\, \omega_{sk} \,+\, a_{r,k}\, \omega_{rj}\,. $$
+Therefore, \,$b_{jk,l} \,=\, a_{j,kl}$\, for every $j$, $k$, $l$. It also means that
+$$ \delta\, d\, \omega \,=\, \big( a_{j,kj} \,-\, a_{k,jj} \big)\, \omega_k $$
+\newpage 
+
+Adding up the above terms, \\[0.1in]
+$\begin{array}{rcl} 
+\Delta\,\omega &=& \ds 
+	a_{j,jk}\, \omega_k \,-\, a_{j,kj}\, \omega_k \,+\, a_{k,jj}\, \omega_k \\[0.1in]
+&=& \ds 
+	a_{k,jj}\,\omega_k \,+\, \big(a_{j,jk} \,-\, a_{j, kj}\big)\, \omega_k \\[0.1in]
+&=& \ds 
+	a_{k,jj} \,\omega_k \,+\, a_r \, R_{jkjr}\, \omega_k \\[0.1in]
+&=& \ds 
+	\big( a_{k,jj} \,-\, a_r R_{rk} \big) \,\omega_k \,.
+\end{array}$\\[0.1in]
+
+Here $R_{rk} \,=\, \sum_j R_{rjjk}$ is a coefficient of the Ricci tensor. 
+We may let
+$$ \nabla^{\ast} \nabla\,\omega \,=\, \sum_{j,k} a_{k,jj}\, \omega_k \man
+E(\omega) \,=\, \sum a_r\,R_{rk}\, \omega_k\,.$$ 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+As a result, \,$\Delta\,\omega \,=\, \nabla^\ast \nabla\,\omega \,-\, E(\omega)$\,.
+We are going to find $\Delta\,\omega$ and prove this result to a general $p$-form on the manifold $M$. 
+Let \,$\omega \,=\, a_{i_1\cdots i_p}\, \omega_{i_p}\wedge\cdots\wedge\omega_{i_1}$\,. \\
+$$ \delta\,\omega \,=\,
+	\sum_{r=1}^p (-1)^{p^2+r+1}\, a_{i_1\cdots i_r\cdots i_p,i_r}\, \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}}
+	\wedge\cdots\wedge \omega_{i_1}. $$
+
+It leads to \\[4pt]
+$\begin{array}{rcl}
+d\, \delta\, \omega &=& \ds 
+	\sum_r (-1)^{p^2+r+1}\, da_{i_1\cdots i_r\cdots i_p,i_r} \wedge 
+	\omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[4pt]
+&& \ds 
+	+\, \sum_{s>r} (-1)^{p^2+r+1}\, a_{i_1\cdots i_r\cdots i_p,i_r} \, (-1)^{p-s}\,
+	\omega_{i_p}\wedge\cdots\wedge d\omega_{i_s} \wedge\cdots\wedge \widetilde{\omega_{i_r}} 
+	\wedge\cdots\wedge \omega_{i_1} \\[4pt]
+&& \ds 
+	+\, \sum_{s<r} (-1)^{p^2+r+1}\, a_{i_1\cdots i_r\cdots i_p,i_r} \, (-1)^{p-s-1}\,
+	\omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge d\omega_{i_s} 
+	\wedge\cdots\wedge \omega_{i_1} \\[0.2in]
+&=& \ds 
+	\sum_r (-1)^{p^2+r+1}\, da_{i_1\cdots i_r\cdots i_p,i_r} \wedge 
+	\omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[4pt]
+&& \ds 
+	+\, \sum_{s>r} (-1)^{r+s+1}\, a_{i_1\cdots i_r\cdots i_p,i_r} \,
+	\omega_{i_s j}\wedge \omega_j \wedge \omega_{i_p} \wedge\cdots\wedge \widetilde{\omega_{i_s}} \wedge\cdots\wedge 
+	\widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[4pt]
+&& \ds 
+	+\, \sum_{s<r} (-1)^{r+s}\, a_{i_1\cdots i_r\cdots i_p,i_r} \,
+	\omega_{i_s j}\wedge \omega_j  \wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} 
+	\wedge\cdots\wedge \widetilde{\omega_{i_s}} \wedge\cdots\wedge \omega_{i_1} \\[0.2in]
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+&=& \ds 
+	\sum_r (-1)^{p^2+r+1}\, \left[\begin{array}{l}
+		\Big(a_{i_1\cdots i_r\cdots i_p, i_rk}\,\omega_k \,-\, a_{i_1\cdots i_r \cdots i_p,s}\, \omega_{si_r} 
+		\,-\, \sum_{l, j_l}a_{i_1\cdots j_l\cdots i_p,i_r}\, \omega_{j_l i_l}\Big) \\[4pt]
+		\wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\ 
+	\end{array} \right] \\[4pt]
+&& \ds 
+	+\, \sum_{s>r} (-1)^{r+s+1}\, a_{i_1\cdots i_r\cdots i_p,i_r} \,
+	\omega_{i_s j}\wedge \omega_j \wedge \omega_{i_p} \wedge\cdots\wedge \widetilde{\omega_{i_s}} \wedge\cdots\wedge 
+	\widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[4pt]
+&& \ds 
+	+\, \sum_{s<r} (-1)^{r+s}\, a_{i_1\cdots i_r\cdots i_p,i_r} \,
+	\omega_{i_s j}\wedge \omega_j  \wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} 
+	\wedge\cdots\wedge \widetilde{\omega_{i_s}} \wedge\cdots\wedge \omega_{i_1} \\[0.3in]
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+&=& \ds 
+	\sum_r (-1)^{p^2+r+1}\, a_{i_1\cdots i_r\cdots i_p, i_rk}\,
+	\omega_k \wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[4pt]
+&& \ds 
+	-\, \sum_r (-1)^{p^2+r+1}\, a_{i_1\cdots i_r \cdots i_p,s}\, \omega_{si_r} \,
+	\wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[4pt]
+&& \ds 
+	-\, \sum_r \sum_{l, j_l} (-1)^{p^2+r+1}\,  a_{i_1\cdots j_l\cdots i_p,i_r}\, \omega_{j_l i_l} \,
+	\wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[4pt]
+&& \ds 
+	+\, \sum_{s>r} (-1)^{r+s+1}\, a_{i_1\cdots i_r\cdots i_p,i_r} \,
+	\omega_{i_s j}\wedge \omega_j \wedge \omega_{i_p} \wedge\cdots\wedge \widetilde{\omega_{i_s}} \wedge\cdots\wedge 
+	\widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[4pt]
+&& \ds 
+	+\, \sum_{s<r} (-1)^{r+s}\, a_{i_1\cdots i_r\cdots i_p,i_r} \,
+	\omega_{i_s j}\wedge \omega_j  \wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} 
+	\wedge\cdots\wedge \widetilde{\omega_{i_s}} \wedge\cdots\wedge \omega_{i_1}
+\end{array}$
+\newpage
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+$\begin{array}{rcl}
+d\, \delta\, \omega &=& \ds 
+	\sum_r (-1)^{p^2+r+1}\, a_{i_1\cdots i_r\cdots i_p, i_rk}\,
+	\omega_k \wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&& \ds 
+	+\, \sum_r (-1)^{p^2+r}\, a_{i_1\cdots i_r \cdots i_p,s}\, \omega_{si_r} \,
+	\wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&& \ds 
+	+\, \sum_{l>r} (-1)^{p^2+r}\,  a_{i_1\cdots i_r \cdots  j_l\cdots  i_p,i_r}\, \omega_{j_l i_l} \,
+	\wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&& \ds 
+	+\, \sum_{l<r} (-1)^{p^2+r}\,  a_{i_1 \cdots j_l \cdots i_r \cdots i_p,i_r}\, \omega_{j_l i_l} \,
+	\wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&& \ds 
+	+\, \sum_r (-1)^{p^2+r}\,  a_{i_1 \cdots j_r \cdots i_p,i_r}\, \omega_{j_r i_r} \,
+	\wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&& \ds 
+	+\, \sum_{s>r} (-1)^{r+s+1}\, a_{i_1\cdots i_r \cdots j_s \cdots i_p,i_r} \, (-1)^{p-s}\,
+	\omega_{j_s i_s}  \wedge \omega_{i_p} \wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&& \ds 
+	+\, \sum_{s<r} (-1)^{r+s}\, a_{i_1\cdots j_s \cdots  i_r\cdots i_p,i_r} \, (-1)^{p-s-1}\, 
+	\omega_{j_s i_s}  \wedge \omega_{i_p} \wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.3in]
+&=& \ds 
+	\sum_r (-1)^{p^2+r+1}\, a_{i_1\cdots i_r\cdots i_p, i_rk}\,
+	\omega_k \wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1}\,. \\
+\end{array}$\\[0.1in]
+
+On the other hand, 
+$$ \delta \, d\, \omega \,=\, \delta\,\Big( a_{i_1\cdots i_p,j}\, \omega_j \wedge \omega_{i_p} \wedge\cdots\wedge \omega_{i_1}\Big) $$
+We may let \,$\ds \beta \,=\, d\omega \,=\, \sum b_{i_1\cdots i_p i_{p+1}}\, \omega_{i_{p+1}}\wedge 
+\omega_{i_p} \wedge\cdots\wedge \omega_{i_1}$\,. So we have\\[0.1in]
+$\begin{array}{rcl}
+\delta \, d\, \omega &=& \ds 
+	\delta\,\Big( a_{i_1\cdots i_o,j}\, \omega_j \wedge \omega_{i_p} \wedge\cdots\wedge \omega_{i_1}\Big) \\[0.2in]
+&=& \ds 
+	\sum_{r=1}^p (-1)^{(p+1)^2+r+1}\, b_{i_1\cdots i_r\cdots i_p i_{p+1}, i_r}\, 
+	\omega_{i_{p+1}} \wedge \omega_{i_p} \wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&& \ds 
+	+\, (-1)^{(p+1)^2+(p+1)+1}\, b_{i_1 \cdots i_p i_{p+1}, i_{p+1}}\,
+	\omega_{i_p} \wedge\cdots\wedge \omega_{i_1} \\
+\end{array}$ \\[0.1in]
+
+Note that \\[0.1in]
+$\begin{array}{rcl}
+b_{i_1\cdots i_p i_{p+1}, j}\, \omega_j &=& \ds 
+	db_{i_1\cdots i_p i_{p+1}} \,+\, \sum_{r,j_r} b_{i_1\cdots j_r\cdots i_p i_{p+1}} \, \omega_{j_r i_r}
+	\,+\, b_{i_1\cdots i_p s}\, \omega_{s i_{p+1}} \\[0.1in]
+&=& \ds 
+	da_{i_1\cdots i_p, i_{p+1}} \,+\, \sum_{r,j_r} a_{i_1\cdots j_r\cdots i_p, i_{p+1}}\, \omega_{j_r i_r} 
+	\,+\, a_{i_1\cdots i_p,s}\, \omega_{s i_{p+1}} \\[0.1in]
+&=& \ds 
+	a_{i_1\cdots i_p, i_{p+1}k} \, \omega_k \,.
+\end{array}$ \\[0.1in]
+
+So we have \, $b_{i_1\cdots i_p i_{p+1},j} \,=\, a_{i_1\cdots i_p, i_{p+1}j}$\, 
+for every choice of \,$i_1, \cdots, i_p,\, i_{p+1} ,\, j$\,. \\[0.1in]
+$\begin{array}{rcl}
+\delta \, d\, \omega &=& \ds
+	\sum_{r=1}^p (-1)^{p^2+r}\, a_{i_1\cdots i_r\cdots i_p, ji_r}\, 
+	\omega_{j} \wedge \omega_{i_p} \wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.2in]
+&& \ds 
+	-\, \sum_j a_{i_1 \cdots i_p, jj}\,	\omega_{i_p} \wedge\cdots\wedge \omega_{i_1} \,.
+\end{array}$ \\
+\newpage 
+
+As a result, the Laplacian of $\omega$ is found by \\[0.1in]
+$\begin{array}{rcl}
+\Delta\, \omega &=& \, -\, d\,\delta\, \omega \,-\, \delta\, d\, \omega \\[0.2in]
+&=& \ds
+	\sum_r (-1)^{p^2+r}\, a_{i_1\cdots i_r\cdots i_p, i_rk}\,
+	\omega_k \wedge \omega_{i_p}\wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&&\ds 
+	+\, \sum_r (-1)^{p^2+r+1}\, a_{i_1\cdots i_r\cdots i_p, ji_r}\, 
+	\omega_{j} \wedge \omega_{i_p} \wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&& \ds 
+	+\, \sum a_{i_1 \cdots i_p, jj}\,	\omega_{i_p} \wedge\cdots\wedge \omega_{i_1}  \\[0.2in]
+&=& \ds 
+	\sum a_{i_1 \cdots i_p, jj}\,	\omega_{i_p} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&&\ds 
+	+\, \sum_r (-1)^{p^2+r}\, \big(a_{i_1\cdots i_r \cdots i_p, i_rj} \,-\, a_{i_1\cdots i_r\cdots i_p, ji_r}\big)\,
+	\omega_{j} \wedge \omega_{i_p} \wedge\cdots\wedge \widetilde{\omega_{i_r}} \wedge\cdots\wedge \omega_{i_1} \\[0.2in]
+&=& \ds 
+	\sum a_{i_1 \cdots i_p, jj}\,	\omega_{i_p} \wedge\cdots\wedge \omega_{i_1} \\[0.1in]
+&&\ds +\, \sum_{r,s} a_{i_1\cdots i_r \cdots j_s \cdots i_p}\, R_{i_r j_r i_s j_s} \,
+	\omega_{i_p} \wedge\cdots\wedge  \omega_{j_r} \wedge\cdots\wedge \omega_{i_1} \,.\\
+\end{array}$  \\[0.1in]
+
+For the $p$-form $\omega$, we let
+$$ \nabla^\ast \nabla \,\omega\,=\, \sum a_{i_1 \cdots i_p, jj}\,	\omega_{i_p} \wedge\cdots\wedge \omega_{i_1} \,, $$
+\mbox{}
+$$ E(\omega) \,=\, \sum_{r,s} a_{i_1\cdots j_s \cdots i_p}\, R_{i_r j_r j_s i_s} \,
+	\omega_{i_p} \wedge\cdots\wedge  \omega_{j_r} \wedge\cdots\wedge \omega_{i_1}\,. $$
+Therfore, we have
+\begin{equation}
+\Delta \,\omega \,=\, \nabla^\ast \nabla \,\omega \,-\, E(\omega)\,. 
+\end{equation}
+\vspace*{0.4in}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\begin{center} {\sc 8. The Bochner formula}\end{center}
+The Bochner formula states that if $\omega$ is a $p$-form,
+$$ \omega \,=\, \sum a_{i_1 \cdots i_p}\,	\omega_{i_p} \wedge\cdots\wedge \omega_{i_1}\,,$$
+then we have
+\begin{equation}
+	\nabla |\omega|^2 \,=\, 2<\Delta \omega\,,\,\omega> \,+\, 2\,|\nabla\,\omega|^2 \,+\, 
+	2<E(\omega)\,,\,\omega>\,.
+\end{equation}
+\vspace*{4pt}
+
+Before proving Equation (10), it is worth mentioning some basic results 
+about applying the chain rule to covariant derivatives. Let $f$ be a smooth real-valued function
+on the manifold $M$, and let $\phi: \mR \to \mR$. Note that we have
+$$ \nabla\,\big(\phi \circ f\big) \,=\, \phi'(f)\,\nabla f$$
+and so \,$ (\phi\circ f)_j \,=\, \phi'(f)\, f_j$\,. Moreover, \\
+
+\newpage
+$ \begin{array}{rcl}
+(\phi \circ f)_{ij} &=& \ds 
+	<\nabla_{e_i}\Big(\phi'(f)\,\nabla f\Big)\,,\, e_j> \\[0.1in]
+&=& \ds
+	e_i\big(\phi'(f)\big) \, <\nabla f\,,\, e_j> \,+\, \phi'(f)\,f_{ij} \\[0.1in]
+&=& \ds 
+	\phi''(f)\,f_i\,f_j \,+\, \phi'(f) \, f_{ij}\,. \\
+\end{array} $ \\[0.1in]
+
+If \,$\alpha \,=\, \sum a_j \, \omega_j$\, is a 1-form instead, and every \,$\phi_j:\mR \to \mR$\,
+is a real-valued function, then we let 
+$$ \beta \,=\, \sum \phi_j(a_j)\, \omega_j \,=\, \sum b_j\,\omega_j\,.$$
+
+The covariant derivative of $\beta$ is obtained by\\[0.1in]
+$ \begin{array}{rcl}
+b_{j,k}\, \omega_k &=& \ds db_j \,+\, b_r\, \omega_{rj} \\[0.1in]
+&=& \ds 
+	d\big(\phi_j(a_j)\big) \,+\, \phi_r(a_r)\,\omega_{rj} \\[0.1in]
+&=& \ds 
+	\phi_j'(a_j)\, da_j \,+\, \phi_r(a_r)\, \omega_{rj} \\[0.1in]
+&=& \ds
+	\phi_j'(a_j)\, \Big(a_{j,l}\,\omega_l \,-\, a_s\,\omega_{sj}\Big) \,+\, \phi_r(a_r)\, \omega_{rj} \\[0.1in]
+&=& \ds 
+	a_{j,l}\,\phi_j'(a_j)\,\omega_l + \Big(\phi_r(a_r) \,-\, a_r\,\phi_j'(a_j)\Big)\, \omega_{rj} \\
+\end{array} $ \\[0.1in]
+
+Therefore, we have
+$$ b_{j,k} \,=\, \phi_j'(a_j)\, a_{j,k} \,+\, \Big(\phi_r(a_r) \,-\, a_r\,\phi_j'(a_j)\Big)\, \Gamma_{kr}^j\,. $$
+\vspace*{2pt}
+
+Back to the Bochner formula, on the left hand side of Equation (10), 
+$$ \Delta|\omega|^2 \,=\, \Delta\big(\sum a_{i_1\cdots i_p}^2 \big) \,=\, \sum (a_{i_1\cdots i_p}^2)_{jj}\,. $$
+By our discussion above, 
+$$ (a_{i_1\cdots i_p}^2)_{jj} \,=\, 2\big((a_{i_1\cdots i_p})_j\big)^2 \,+\, 2\,a_{i_1\cdots i_p}\,(a_{i_1\cdots i_p})_{jj}\,. $$
+Therefore, 
+$$ \Delta|\omega|^2 \,=\, 2\,\sum \big((a_{i_1\cdots i_p})_j\big)^2 \,+\, 2\, \sum a_{i_1\cdots i_p}\,(a_{i_1\cdots i_p})_{jj}\,. $$
+\vspace*{2pt}
+
+Here We add a remark that the terms \,$(a_{i_1\cdots i_p})_j$\, and \,$(a_{i_1\cdots i_p})_{jj}$\, 
+are the components of the first and second covariant derivatives of the function $a_{i_1\cdots i_p}$ respectively.
+In other words, 
+$$ (a_{i_1\cdots i_p})_j \neq a_{i_1\cdots i_p,j} \man (a_{i_1\cdots i_p})_{jj} \neq a_{i_1\cdots i_p,jj}$$
+in general. To make the equalities happen, in the following we fix a point $x$ on $M$.
+Then, we choose an orthonormal frame \,$\big\{e_1,\cdots,e_n\big\}$\, around $x$ such that \\[0.1in]
+(1) \quad $\nabla_{e_i}e_j \,=\, 0$\, at $x$ for all $i$, $j$; \\[0.1in]
+(2) \quad $\nabla_{e_i} \nabla_{e_i}e_j \,=\, 0$\, at $x$ for all $i$, $j$. \\
+\newpage 
+
+In order to construct this orthonormal frame, we pick an orthonormal basis for $T_xM$ named by 
+$\big\{E_1, E_2\cdots,E_n\big\}$\,. Consider the geodesic normal coordinates at $x$ 
+such that $E_j$ is represented by \,$e_j\,=\,\big(0,\cdots, 1^{(j)},\cdots,0\big)$\, on $T_xM$. 
+Any vector $E_j$ is parallel-transported from $x$ to another point $y=\exp_x(\bv)$ 
+in the neighborhood through geodesics $\gamma(t) = \exp_x(t\,\bv) $ connecting $x$ and $y$. \\
+
+In particular, for any pair of $E_i$ and $E_j$, 
+$$ (\nabla_{E_i} E_j)(y) \,=\, {\bf 0} $$
+whenever $y$ lies on the geodesic \,$\gamma_i(t) \,=\, \exp_x(t\,e_i)$\,. For any $E_k$, we have
+$$ <\nabla_{E_i} E_j\,,\,E_k>\,=\, 0$$
+at any point $y$ on $\gamma_i$. Therefore, 
+$$ \begin{array}{rcl}
+E_i\big(<\nabla_{E_i} E_j\,,\,E_k>\big) &=& 0 \\[0.1in]
+<\nabla_{E_i}\nabla_{E_i} E_j\,,\,E_k> \,+\, <\nabla_{E_i} E_j\,,\,\nabla_{E_i}E_k> &=& 0 \\[0.1in]
+<\nabla_{E_i}\nabla_{E_i} E_j\,,\,E_k> &=& 0
+\end{array}$$
+at $y$. Hence, \,$\nabla_{E_i}\nabla_{E_i} E_j\,=\,{\bf 0}$\, at $x$. \\[0.1in]
+
+As an implication of properties (1) and (2), at the point $x$, \\[0.1in]
+$\begin{array}{rcl}
+a_{i_1\cdots i_p,j} &=& \ds 
+	da_{i_1\cdots i_p}(e_j) \,+\, a_{i_1\cdots j_r\cdots i_p}\, \Gamma_{jj_r}^{i_r} \\[0.1in]
+&=& \ds 
+	da_{i_1\cdots i_p}(e_j)\,, \\[0.2in]
+a_{i_1\cdots i_p,jj} &=& \ds 
+	da_{i_1\cdots i_p,j}(e_j) \,+\, a_{i_1\cdots i_p,s}\,\omega_{sj}(e_j) 
+	\,+\, \sum a_{i_1\cdots j_r \cdots i_p,j}\, \omega_{j_ri_r}(e_j) \\[0.1in]
+&=& \ds 
+	da_{i_1\cdots i_p,j}(e_j)\,.
+\end{array} $ \\[0.1in]
+
+So we have \,$(a_{i_1\cdots i_p})_j \,=\, da_{i_1\cdots i_p}(e_j) \,=\, a_{i_1\cdots i_p,j}$\, at $x$. \\[0.1in]
+$\begin{array}{rcl}
+(a_{i_1\cdots i_p})_{jj} &=& \ds 
+	\big(d(a_{i_1\cdots i_p})_j\big)(e_j) \,+\, a_{i_1\cdots i_p,k}\, \omega_{kj}(e_j) \\[0.1in]
+&=& \ds 
+	d\Big(a_{i_1\cdots i_p,j} \,-\, a_{i_1\cdots j_r\cdots i_p}\, \Gamma_{jj_r}^{i_r}\Big)(e_j) \\[0.1in]
+&=& \ds 
+	d(a_{i_1\cdots i_p,j})(e_j) \,-\, da_{i_1\cdots j_r\cdots i_p}(e_j)\, \Gamma_{jj_r}^{i_r} 
+	\,-\, a_{i_1\cdots j_r\cdots i_p}\, d\Gamma_{jj_r}^{i_r}(e_j) \\
+\end{array} $ \\[0.1in]
+
+Note that \\[0.1in]
+$\begin{array}{rcl}
+d\Gamma_{jj_r}^{i_r}(e_j) &=& \ds e_j\big(<\nabla_{e_j} e_{j_r}\,,\, e_{i_r}>\big) \\[0.1in]
+&=& \ds 
+	<\nabla_{e_j}\nabla_{e_j} e_{j_r}\,,\, e_{i_r}> \,+\, <\nabla_{e_j} e_{j_r}\,,\, \nabla_{e_j}e_{i_r}> \\[0.1in]	
+&=& \ds 
+	0 \quad \mbox{at }x\,. 
+\end{array}$ \\
+\newpage
+
+Therefore, \,$(a_{i_1\cdots i_p})_{jj} \,=\, a_{i_1\cdots i_p,jj}$\, at $x$. 
+Finally, we may justify the Bochner formula as follows. \\[0.1in]
+$\begin{array}{rcl}
+\Delta |\omega|^2 &=&\ds 
+	2\,\sum a_{i_1\cdots i_p,j}^2 \,+\, 2\,\sum a_{i_1\cdots i_p}\, a_{i_1\cdots i_p,jj} \\[0.2in]
+&=& \ds 
+	2\, |\nabla \omega|^2 \,+\, 2\,<\nabla^\ast\nabla \omega \,,\, \omega> \\[0.1in]
+&=& \ds 
+	2\, |\nabla \omega|^2 \,+\, 2\,<\Delta \omega \,,\, \omega> \,+\, 2\,<E(\omega) \,,\, \omega>
+\end{array}$ 
+
+\vfill
+\centering{\sc -end-}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\end{document}
